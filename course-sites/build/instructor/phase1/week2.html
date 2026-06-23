@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 2: Build a Backend — Facilitator Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+        <a href="../troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="../ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="../assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link active">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 2</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">02</div>
+  <div class="week-header-text">
+    <h1>Build a Backend · Facilitator Guide</h1>
+    <p class="week-theme">Intent: build backend mental models and introduce structured AI debugging.</p>
+  </div>
+</div>
+
+<h2>Monday — Concept Session</h2>
+<p><strong>Duration:</strong> 90 minutes<br />
+<strong>Key concept to land:</strong> The backend exists because some things shouldn't run in the browser. Data needs to persist. Secrets need protection. Logic needs a server.</p>
+<h3>Live demo approach</h3>
+<p>Build a simple Express.js (or FastAPI) server live with Claude Code. Narrate every decision:
+- Show the prompt you used to generate the initial scaffold
+- Show what you changed in the generated output and why
+- Demonstrate a 500 error — and show how you'd prompt to fix it vs. how you'd debug it yourself
+- Show what happens when you don't give the AI enough context vs. when you do</p>
+<h3>HTTP fundamentals — keep it tight</h3>
+<p>Students don't need to memorise status codes. They need to understand: requests have a method and a path, responses have a status code and a body. That's enough to start. Don't spend more than 15 minutes on HTTP theory.</p>
+<h3>Where AI stumbles with backend code</h3>
+<p>This is worth 5–10 minutes explicitly:
+- AI generates optimistic code — it assumes things will work, often skips error handling
+- AI doesn't know your server's runtime environment — it may generate code for the wrong Node version, wrong framework version
+- AI can generate security vulnerabilities silently — especially around input handling</p>
+<p>Plant these seeds now. Students will encounter them this week.</p>
+<hr />
+<h2>The deliberate bug exercise</h2>
+<p>This is the most pedagogically important moment of Week 2. Do not skip it or make it optional.</p>
+<p><strong>What students do:</strong> Introduce a bug they understand, let AI try to fix it, document what happened.</p>
+<p><strong>Why it matters:</strong> Students default to trusting AI debugging. This exercise forces them to watch AI debug — to see both its capabilities and its failure modes. Many will be surprised that AI confidently diagnoses the wrong thing.</p>
+<p><strong>Common outcomes:</strong>
+- AI fixes the surface symptom, not the root cause (very common)
+- AI introduces a new bug while fixing the original (happens regularly)
+- AI correctly identifies and fixes the bug (also happens — the lesson is still about the process of verification)</p>
+<p><strong>Debrief on Thursday:</strong> Ask squads to share what they observed. Build a shared vocabulary: "AI fixed the symptom," "AI overcorrected," "AI was right but I still verified it."</p>
+<hr />
+<h2>Thursday — API Testing Workshop</h2>
+<p><strong>What you want students to take away:</strong></p>
+<p>An API that can't be tested by someone who didn't build it isn't done. The one-paragraph API contract exercise surfaces whether students actually understand what their backend does. Read the contracts — vague language is a signal of shallow understanding.</p>
+<p><strong>Common API contract failure mode:</strong> Students describe the implementation ("it uses Express and queries the database") rather than the contract ("it accepts a user ID and returns all posts belonging to that user"). Redirect toward the latter.</p>
+<hr />
+<h2>Week 2 escalation flags</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Your action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Student can't explain their API endpoints at Friday demo</td>
+<td>Schedule W3 pre-check before Wednesday</td>
+</tr>
+<tr>
+<td>Student's deliberate bug exercise shows AI accepted without verification</td>
+<td>Direct conversation about critical evaluation habit</td>
+</tr>
+<tr>
+<td>Backend not functional by Thursday</td>
+<td>Check in on Wednesday — don't wait</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Week 2 success criteria</h2>
+<ul>
+<li>[ ] REST API with 3+ endpoints deployed and tested via Postman</li>
+<li>[ ] External API call integrated and working</li>
+<li>[ ] Deliberate bug exercise documented</li>
+<li>[ ] API contract written</li>
+<li>[ ] Reflection submitted</li>
+</ul>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

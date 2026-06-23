@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Rubrics — Instructor Guide</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="assessments.html" class="nav-link active">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase1/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Assessment Rubrics</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+  <span class="eyebrow">Assessments · Full Rubrics + Assessor Notes</span>
+  <h1>Assessment Rubrics</h1>
+  <p class="subtitle">Three assessments across the program. Each tests a different dimension of AI-first engineering competence. No written exams.</p>
+</div>
+
+<h2>Assessment 1: Code Walkthrough</h2>
+<p><strong>Format:</strong> 10–15 min, 1:1, human coach<br />
+<strong>When:</strong> End of Phase 1 (W5), Phase 2 (W11), Phase 3 (W16)</p>
+<h3>Assessor preparation</h3>
+<p>Before the walkthrough, review the student's GitHub activity for the phase and the Course Coordinator's pre-brief. Select 2–3 code sections:
+- At least one AI-generated (visible in PR descriptions)
+- At least one connecting to other parts of the system
+- Vary across the squad</p>
+<h3>Dimension 1: Comprehension</h3>
+<div class="score-grid">
+  <div class="score-row">
+    <div class="score-label s1">1</div>
+    <div class="score-text">Cannot explain the code's purpose. Describes syntax ("it's a function, it has parameters") without meaning.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s2">2</div>
+    <div class="score-text">Explains the general purpose but misses key details or gets some behaviour wrong.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s3">3</div>
+    <div class="score-text">Accurately explains inputs, outputs, and side effects. May need a prompt or two.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s4">4</div>
+    <div class="score-text">Explains fluently and precisely, including edge cases and system fit, without prompting.</div>
+  </div>
+</div>
+
+<h3>Dimension 2: Critical Evaluation</h3>
+<div class="score-grid">
+  <div class="score-row">
+    <div class="score-label s1">1</div>
+    <div class="score-text">Accepts code as-is. Cannot identify any potential issues even when prompted.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s2">2</div>
+    <div class="score-text">Identifies one obvious issue when explicitly asked, but can't explain why it matters.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s3">3</div>
+    <div class="score-text">Proactively identifies at least one issue or improvement and explains the reasoning.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s4">4</div>
+    <div class="score-text">Identifies multiple issues, reasons about tradeoffs, suggests a concrete path forward.</div>
+  </div>
+</div>
+
+<h3>Dimension 3: AI Awareness</h3>
+<div class="score-grid">
+  <div class="score-row">
+    <div class="score-label s1">1</div>
+    <div class="score-text">Cannot distinguish AI-generated from human-written sections. Has not thought about this.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s2">2</div>
+    <div class="score-text">Aware AI generated some code but can't explain what they verified, changed, or decided to keep.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s3">3</div>
+    <div class="score-text">Can articulate what AI generated, what they changed, what they verified, and why they trusted the output.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s4">4</div>
+    <div class="score-text">Demonstrates sophisticated judgment: knows when to accept, modify, or reject AI output and explains the heuristics developed.</div>
+  </div>
+</div>
+
+<h3>Dimension 4: System Thinking</h3>
+<div class="score-grid">
+  <div class="score-row">
+    <div class="score-label s1">1</div>
+    <div class="score-text">Can only discuss code in isolation. Cannot reason about its place in the system.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s2">2</div>
+    <div class="score-text">Vague sense of the code's place in the system but cannot trace dependencies clearly.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s3">3</div>
+    <div class="score-text">Can explain how this code connects to adjacent parts and what would break if it changed.</div>
+  </div>
+  <div class="score-row">
+    <div class="score-label s4">4</div>
+    <div class="score-text">Reasons fluently about system role, identifies implicit dependencies, considers downstream effects.</div>
+  </div>
+</div>
+
+<h3>Scoring</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13–16</td>
+<td>Distinction</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>Borderline — coaching conversation required</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>Does not meet standard — remediation required</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> A score of 1 on any dimension, regardless of total, triggers a mandatory coaching conversation.</p>
+<h3>Assessor question bank</h3>
+<p><strong>Comprehension:</strong> "Walk me through what this function does." / "What happens if this input is null?" / "Why is this structured this way?"</p>
+<p><strong>Critical evaluation:</strong> "Is there anything here you'd change?" / "What edge cases does this miss?" / "If this was AI-generated, what would you verify before shipping?"</p>
+<p><strong>AI awareness:</strong> "Did you write this, or did the AI?" / "What did you change from what the AI generated?" / "How did you decide to trust this output?"</p>
+<p><strong>System thinking:</strong> "What would break if this function was removed?" / "Where does this data come from?" / "What happens downstream if this returns an error?"</p>
+<hr />
+<h2>Assessment 2: PR History Review</h2>
+<p><strong>Format:</strong> Async review + 15-min feedback conversation<br />
+<strong>When:</strong> End of Phase 2 (W11) and Phase 3 (W16)</p>
+<p>Review both PRs authored and PRs reviewed across the phase.</p>
+<h3>Dimension 1: PR Communication</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">PR descriptions absent or minimal ("fixed stuff"). No context given.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Descriptions focus on what changed technically, not why.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">PRs explain purpose, reference the relevant task, note what reviewer should check.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">PRs are exemplary: context, tradeoffs considered, AI sections flagged explicitly.</div></div>
+</div>
+
+<h3>Dimension 2: Commit Discipline</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">Commits are infrequent, enormous, or have no meaningful messages.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Commits are inconsistently sized and messaged. Hard to follow.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Reasonably atomic commits with clear messages describing what changed.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Commit history reads as a clear narrative. Anyone could follow the development from commits alone.</div></div>
+</div>
+
+<h3>Dimension 3: AI Collaboration Transparency</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">No evidence AI's role was considered. AI-generated sections undifferentiated.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Occasionally notes AI involvement but inconsistently, without reflection.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Consistently notes AI contributions, explains what was verified or modified.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Treats AI as a collaborator to be cited. PR descriptions include clear attribution and critical judgment about AI output quality.</div></div>
+</div>
+
+<h3>Dimension 4: Review Quality</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">Reviews absent or approvals only.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Superficial comments (typos, formatting) — no substantive issues raised.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">At least one substantive comment per PR: real issue, clarifying question, or meaningful improvement.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Thorough reviews that add clear value. AI-generated code scrutinised explicitly. Reasoning explained.</div></div>
+</div>
+
+<hr />
+<h2>Assessment 3: Portfolio Artifact</h2>
+<p><strong>Format:</strong> Written (1,500–2,500 words), video (8–12 min), or presentation (15 slides + notes)<br />
+<strong>When:</strong> Submitted W15, prior to Demo Day</p>
+<h3>Dimension 1: Honesty and Depth of Reflection</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">Reads as a product description. No real reflection on process or AI use.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Generic reflection ("AI helped me code faster"). No specific examples.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Specific, honest reflection on both successes and failures. Reader learns something real about how this student worked.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Exceptionally honest and insightful. Non-obvious lessons, genuine mistakes acknowledged, mature relationship with AI as a tool.</div></div>
+</div>
+
+<h3>Dimension 2: Technical Credibility</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">Technical content vague or incorrect. Could have been written without building anything.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Technical content present but superficial. Describes what was built without demonstrating understanding.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Accurate and appropriately detailed. The reader can tell this student knows what they built.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Precise and confident. Architectural decisions and tradeoffs explained. Goes beyond describing code to reasoning about it.</div></div>
+</div>
+
+<h3>Dimension 3: Specificity of AI Examples</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">AI examples absent or entirely generic.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Some specific examples but without enough context to be instructive.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Clear, specific examples with enough context (task, prompt, output, changes) that a reader could learn from them.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Exemplary case studies. Actual prompts included, output evaluated, evaluation process described. Genuinely instructive.</div></div>
+</div>
+
+<h3>Dimension 4: Communication Quality</h3>
+<div class="score-grid">
+  <div class="score-row"><div class="score-label s1">1</div><div class="score-text">Poorly structured, hard to follow. Not appropriate to share with an employer.</div></div>
+  <div class="score-row"><div class="score-label s2">2</div><div class="score-text">Readable but unpolished. Technical terminology inconsistent.</div></div>
+  <div class="score-row"><div class="score-label s3">3</div><div class="score-text">Well-structured, clearly written, appropriate for a technical audience. Would represent the student well.</div></div>
+  <div class="score-row"><div class="score-label s4">4</div><div class="score-text">Distinctive and compelling. Student's voice comes through. Would stand out in any hiring context.</div></div>
+</div>
+
+<h3>Portfolio scoring</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13–16</td>
+<td>Distinction</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>Borderline — revision opportunity offered</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>Does not meet standard — full revision required</td>
+</tr>
+</tbody>
+</table>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

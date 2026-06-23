@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 4: Persist Your Data — Facilitator Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+        <a href="../troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="../ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="../assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link active">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 4</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">04</div>
+  <div class="week-header-text">
+    <h1>Persist Your Data · Facilitator Guide</h1>
+    <p class="week-theme">Intent: schema design as a human skill, database integration, data integrity thinking.</p>
+  </div>
+</div>
+
+<h2>Monday — Concept Session</h2>
+<p><strong>The key point to establish explicitly:</strong> AI is very good at writing ORM queries and migration files. But AI doesn't know your data. Schema design is a human judgment — it encodes how you think about your domain. Once the schema is right, the AI can execute perfectly. If the schema is wrong, perfect execution produces a broken system.</p>
+<p><strong>SQL fundamentals:</strong> Students only need to read SQL at this stage, not write it. Focus on SELECT with WHERE and JOIN — these are the queries they'll see AI generate most. Understanding what a JOIN does conceptually is enough.</p>
+<hr />
+<h2>Tuesday schema reviews</h2>
+<p>Every squad presents their schema before coding starts. This is the most important facilitation moment of Week 4.</p>
+<p><strong>What to look for:</strong></p>
+<p><em>Missing relationships:</em> A schema with three unrelated tables is almost certainly missing something. Ask: "How does a user own a post? How does a post belong to a category?" If they can't point to a foreign key, the schema isn't done.</p>
+<p><em>Naming inconsistencies:</em> <code>userId</code> in one table, <code>user_id</code> in another. AI will generate inconsistent names if not given a consistent schema. Point this out — it matters for query generation.</p>
+<p><em>Overly ambitious schemas:</em> Students sometimes design for their dream product, not their MVP. The schema should support the Week 5 MVP, not Phase 3. Ask: "Do you need this table for what you're building next week?"</p>
+<p><em>Missing timestamps:</em> <code>created_at</code> and <code>updated_at</code> should be on every table. Most students forget. Remind them.</p>
+<p><strong>Sign-off:</strong> Only sign off once a schema has at least one relationship, consistent naming, timestamps, and scope appropriate for the MVP.</p>
+<hr />
+<h2>Thursday — Data Integrity Workshop</h2>
+<p><strong>Facilitation approach:</strong> Frame this as "adversarial testing" — squads are trying to help each other find problems, not embarrass each other. The energy should be collaborative.</p>
+<p><strong>What usually breaks:</strong>
+- SQL injection (if students used raw queries instead of parameterised ones — AI sometimes generates raw queries)
+- Empty strings accepted as valid (no backend validation)
+- Duplicate records created (no unique constraints)
+- Cascading deletes not handled (deleting a user orphans their posts)</p>
+<p><strong>After the workshop:</strong> Every squad should have a short list of issues found. These get fixed before the MVP sprint.</p>
+<hr />
+<h2>Week 4 escalation flags</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Your action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schema submitted with no relationships</td>
+<td>Require revision, don't sign off</td>
+</tr>
+<tr>
+<td>Database connection not working by Wednesday</td>
+<td>Direct technical support — don't let this block the sprint</td>
+</tr>
+<tr>
+<td>Student submits reflection saying "I let AI design everything"</td>
+<td>Conversation about the schema as a human responsibility</td>
+</tr>
+</tbody>
+</table>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

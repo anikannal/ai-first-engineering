@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Instructor Guide</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase1/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          <span class="current">Home</span>
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="hero">
+  <span class="hero-label">Instructor Guide · AI-First Software Engineering</span>
+  <h1>Your facilitation<br><span>operating manual.</span></h1>
+  <p class="hero-sub">Everything you need to run the program — concept session guides, facilitator notes, escalation logic, assessment rubrics, and AI Coach configuration. Denser than the student guide by design.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="stat-num">3</span><span class="stat-label">phases</span></div>
+    <div class="hero-stat"><span class="stat-num">16</span><span class="stat-label">weeks detailed</span></div>
+    <div class="hero-stat"><span class="stat-num">8</span><span class="stat-label">AI Coach capabilities</span></div>
+    <div class="hero-stat"><span class="stat-num">3</span><span class="stat-label">assessment rubrics</span></div>
+  </div>
+</div>
+
+<h2>Quick reference</h2>
+<div class="card-grid">
+  <a class="card" href="phase1/index.html">
+    <span class="card-label">Phase 1 · Weeks 1–5</span>
+    <h3>Foundations Facilitator Guide →</h3>
+    <p>Full week-by-week facilitator notes, concept session scripts, common pitfalls, escalation triggers.</p>
+  </a>
+  <a class="card" href="assessments.html">
+    <span class="card-label">Assessments</span>
+    <h3>All Rubrics + Assessor Notes →</h3>
+    <p>Code Walkthrough, PR History Review, Portfolio Artifact — rubrics, question banks, and assessor guidance.</p>
+  </a>
+  <a class="card" href="ai-coach-config.html">
+    <span class="card-label">Infrastructure</span>
+    <h3>AI Coach Configuration →</h3>
+    <p>System prompts for all eight capabilities, persistence layer setup, escalation logic.</p>
+  </a>
+  <a class="card" href="troubleshooting.html">
+    <span class="card-label">Operations</span>
+    <h3>Troubleshooting Guide →</h3>
+    <p>What to do when students hit common blockers, fall behind, or struggle with AI collaboration.</p>
+  </a>
+</div>
+
+<h2>Program philosophy (read this first)</h2>
+<p>This program is different from most engineering bootcamps in one important way: <strong>the delivery model is itself AI-first</strong>. Students are supported day-to-day by the AI Coach — you are not the first line of support for most questions.</p>
+<p>Your role is to do what AI cannot: build relationships, exercise judgment in ambiguous situations, motivate students through the hard parts, and bring real-world professional context into the room.</p>
+<p><strong>The three things you're optimising for:</strong></p>
+<ol>
+<li>
+<p><strong>Students ship.</strong> Every week ends with something working and deployed. Anything that blocks shipping is your highest-priority problem.</p>
+</li>
+<li>
+<p><strong>Students understand what they build.</strong> AI makes it easy to have code without comprehension. The Code Walkthrough assessments are your check on this — but the culture of understanding should permeate everything.</p>
+</li>
+<li>
+<p><strong>Students develop AI judgment.</strong> Not enthusiasm, not scepticism — judgment. The ability to decide when to trust AI output, when to verify it, and when to reject it. This is the hardest skill to teach and the most valuable to develop.</p>
+</li>
+</ol>
+<h2>Assessment calendar at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Code Walkthrough (Phase 1)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Code Walkthrough (Phase 2) + PR History Review (Phase 2)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Portfolio Artifact submitted</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Code Walkthrough (Phase 3) + PR History Review (Phase 3) + Demo Day</td>
+</tr>
+</tbody>
+</table>
+<h2>Escalation from the AI Coach</h2>
+<p>The AI Coach Course Coordinator will surface escalation flags to you before your squad check-ins. These flags include:</p>
+<ul>
+<li>Student hasn't shipped by end of Week 1</li>
+<li>Student unable to explain their Week 2 API endpoints (Coordinator flags after reflection check-in)</li>
+<li>Squad missing standups during MVP sprint</li>
+<li>Reflection responses suggesting significant confidence issues or blockers</li>
+</ul>
+<p>When you receive a flag, address it in your next scheduled check-in — don't wait for the student to raise it.</p>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

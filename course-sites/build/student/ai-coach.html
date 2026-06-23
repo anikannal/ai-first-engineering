@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coach Setup — AI-First Engineering</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="site-student">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Student Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="index.html" class="nav-link ">Home</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Program</span>
+        <a href="ai-coach.html" class="nav-link active">AI Coach Setup</a>
+        <a href="assessments.html" class="nav-link ">Assessments</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase1/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">AI Coach Setup</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+  <span class="eyebrow">Program Infrastructure</span>
+  <h1>AI Coach Setup</h1>
+  <p class="subtitle">Eight capabilities, configured in your IDE. Your first point of contact for most things — code review, debugging, architecture questions, and more.</p>
+</div>
+
+<div class="callout info">
+  <span class="callout-title">What the AI Coach is</span>
+  <p>The AI Coach is a set of configured system prompts you install into Claude Code or Cursor. Each capability is a separate prompt, scoped to a specific type of support. The AI Coach is not hosted on external infrastructure — it runs in your IDE using your API key or the program's shared credentials.</p>
+</div>
+
+<h2>The eight capabilities</h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>What it does</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Course Coordinator</strong></td>
+<td>Tracks your progress, tells you what's next, briefs coaches before check-ins</td>
+<td>Daily — log completions, check your status</td>
+</tr>
+<tr>
+<td><strong>Code Review Agent</strong></td>
+<td>Reviews PRs: correctness, security, test coverage, AI-generated code flags</td>
+<td>Every PR before human review</td>
+</tr>
+<tr>
+<td><strong>Debugging Partner</strong></td>
+<td>Walks through bugs Socratically — asks questions before giving answers</td>
+<td>When stuck on a bug for &gt;15 min</td>
+</tr>
+<tr>
+<td><strong>Architecture Advisor</strong></td>
+<td>Reviews system design, flags anti-patterns, suggests tradeoffs</td>
+<td>Before building a new feature or component</td>
+</tr>
+<tr>
+<td><strong>Prompt Coach</strong></td>
+<td>Reviews prompts you write to your coding AI tools</td>
+<td>Before any significant code generation</td>
+</tr>
+<tr>
+<td><strong>Sprint Assistant</strong></td>
+<td>Decomposes requirements, estimates scope, writes user stories</td>
+<td>Sprint planning, feature scoping</td>
+</tr>
+<tr>
+<td><strong>Concept Tutor</strong></td>
+<td>Answers technical questions with curriculum-aware context</td>
+<td>Any time you're confused about a concept</td>
+</tr>
+<tr>
+<td><strong>Reflection Interviewer</strong></td>
+<td>Weekly async check-in — surfaces blockers, logs your progress</td>
+<td>Every Friday</td>
+</tr>
+</tbody>
+</table>
+<h2>How to install</h2>
+<p>Each capability is installed as a custom command in Claude Code or a system prompt in Cursor.</p>
+<h3>In Claude Code</h3>
+<p>Your program coordinator will provide a <code>.claude/commands/</code> directory with pre-configured <code>.md</code> files for each capability. Drop this directory into your project root and the commands will be available as <code>/ai-coach-[capability]</code>.</p>
+<pre><code class="language-bash"># Example: run the Code Review Agent on your current branch
+/ai-coach-review
+
+# Example: start a debugging session
+/ai-coach-debug
+
+# Example: get your weekly check-in
+/ai-coach-reflect
+</code></pre>
+<h3>In Cursor</h3>
+<p>Each capability is available as a system prompt preset. Open <strong>Cursor Settings → AI → Custom Instructions</strong> and paste the relevant prompt from your program materials. Name each one clearly (e.g. "AI Coach — Debugging Partner").</p>
+<h2>How to use each capability well</h2>
+<h3>Course Coordinator</h3>
+<p>The Coordinator needs context to be useful. At the start of each week, tell it:
+- What phase and week you're in
+- What you completed last week
+- What your goal is this week</p>
+<p>It will track this and surface it to your coaches before check-ins.</p>
+<h3>Code Review Agent</h3>
+<p>Paste the diff (or the full file for smaller changes) and include:
+- What the PR is meant to do
+- Whether any sections are AI-generated
+- Anything you're unsure about</p>
+<p>The agent will flag issues under four categories: correctness, security, readability, and AI-generated code quality.</p>
+<h3>Debugging Partner</h3>
+<p>Don't just paste the error. Include:
+- What you expected to happen
+- What actually happened
+- What you've already tried</p>
+<p>The Debugging Partner will ask clarifying questions before suggesting a fix. This is deliberate — the goal is to build your debugging reasoning, not just get an answer.</p>
+<h3>Architecture Advisor</h3>
+<p>Use this <strong>before</strong> writing code, not after. Give it:
+- What you're trying to build
+- Your current system structure (even a rough description)
+- The constraints you're working within</p>
+<h3>Prompt Coach</h3>
+<p>Paste the prompt you're about to use and ask for a review. It will suggest improvements to make the output more targeted and easier to validate.</p>
+<h3>Sprint Assistant</h3>
+<p>Give it your product brief and time constraint. It will break the work into tasks, flag scope risks, and suggest what to cut if you need to.</p>
+<h2>The rule: AI Coach first, human coach second</h2>
+<p>For most questions, go to the AI Coach first. If the AI Coach can't resolve it in 2–3 exchanges, escalate to your Engineering Coach. This isn't about rationing human time — it's about building the habit of structured problem-solving before seeking help, which is exactly how effective AI-first engineers work.</p>
+<div class="callout tip">
+  <span class="callout-title">The meta-skill</span>
+  <p>The AI Coach is itself an AI system. Getting good at using it — writing clear prompts, giving useful context, evaluating its suggestions critically — is practice for exactly the skills this program is building. Treat your interactions with the AI Coach as deliberate practice, not just task completion.</p>
+</div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

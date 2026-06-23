@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooting Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="index.html" class="nav-link ">Home</a>
+        <a href="troubleshooting.html" class="nav-link active">Troubleshooting</a>
+        <a href="ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase1/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Troubleshooting</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+  <span class="eyebrow">Operations</span>
+  <h1>Troubleshooting Guide</h1>
+  <p class="subtitle">What to do when students hit common blockers, fall behind, or struggle with AI collaboration.</p>
+</div>
+
+<h2>Student is accepting AI output without reading it</h2>
+<p><strong>Signs:</strong> Can't explain their own code at demos or check-ins. PR descriptions say nothing about what the code does. Friday demo shows something working but student can't answer basic questions about it.</p>
+<p><strong>What to do:</strong>
+- Address it directly in the next 1:1: "I noticed you couldn't explain [section] during the demo. Let's walk through it now."
+- Don't frame it as a failure. Frame it as the most important skill to develop.
+- Assign the Code Reading workshop as a one-on-one exercise: they read their own codebase section by section and explain it back to you.
+- If it persists into Phase 2, this becomes a Code Walkthrough risk. Flag it in the Course Coordinator and increase check-in frequency.</p>
+<hr />
+<h2>Student is not shipping by end of week</h2>
+<p><strong>Signs:</strong> Nothing deployed by Friday. Demo shows a localhost screenshot instead of a live URL. MVP sprint produces no working features.</p>
+<p><strong>What to do:</strong>
+- Check in Wednesday — don't wait until Friday. The Course Coordinator flags this automatically, but act before the end of week.
+- Diagnose: is it scope (they planned too much), blocking bugs (they're stuck), or avoidance (they're overwhelmed)?
+- For scope: help them cut immediately. What's the one thing that must work?
+- For blocking bugs: escalate to Engineering Coach for direct technical help.
+- For overwhelm: 1:1 conversation about what's making it feel impossible. Often it's a single misunderstanding that's blocking everything.</p>
+<hr />
+<h2>Student is over-relying on AI (not developing their own skills)</h2>
+<p><strong>Signs:</strong> All code is AI-generated with no modifications. Student can't debug without asking AI first. Reflections always say "the AI did it, it worked."</p>
+<p><strong>What to do:</strong>
+- This is subtle — over-reliance often looks like productivity in the short term.
+- Introduce a "no AI" constraint for one specific task each week. Ask them to build something small without AI assistance and reflect on what was hard.
+- In Code Walkthroughs, specifically probe AI Awareness: "What did you change from what the AI generated? Why?"
+- If the student is genuinely not developing judgment, have an explicit conversation: the goal of this program is not to produce someone who uses AI well when the AI works perfectly. It's to produce someone who knows when AI is wrong.</p>
+<hr />
+<h2>Squad is not using PRs / committing directly to main</h2>
+<p><strong>Signs:</strong> GitHub shows direct commits to main. No PR history. Squad "collaborating" by sharing files in chat.</p>
+<p><strong>What to do:</strong>
+- Stop it immediately the first time you see it. Don't let it become a habit.
+- Be clear about why: "Every PR is a review checkpoint. It's how you work safely with AI-generated code in a team. It's also what your PR History assessment is based on."
+- Check their GitHub daily during the MVP sprint. The Course Coordinator tracks this — act on flags same day.</p>
+<hr />
+<h2>Student is falling significantly behind the cohort</h2>
+<p><strong>Signs:</strong> Missing milestones two weeks in a row. Reflection responses are short or not submitted. Visible disengagement.</p>
+<p><strong>What to do:</strong>
+- Schedule a 1:1 focused on what's getting in the way — not on catching up. Catching up follows from removing the blocker.
+- Assess whether the issue is: conceptual (they're lost), technical (they're blocked), or personal (something outside the program).
+- For conceptual gaps: identify the specific gap (async? databases? prompting?). Give a focused exercise to close it.
+- For personal issues: be human first. The program can flex; a struggling student cannot.
+- Don't let a student reach the Phase 2 transition significantly behind without a clear plan.</p>
+<hr />
+<h2>Student disputes their Code Walkthrough score</h2>
+<p><strong>Signs:</strong> Student thinks their score is unfair, particularly on AI Awareness or System Thinking.</p>
+<p><strong>What to do:</strong>
+- Review your notes from the walkthrough. If the scoring was based on a single unclear question, that's a process issue — be open to revisiting.
+- If the score reflects a consistent pattern across the walkthrough, walk through each dimension with the student and explain specifically what you observed.
+- The rubric descriptors are your reference — share them with the student directly. This is also valuable because it shows them exactly what to work on.
+- Scores below 10 trigger a coaching conversation regardless — use this as that conversation.</p>
+<hr />
+<h2>AI Coach capability not working as expected</h2>
+<p><strong>Signs:</strong> Students report the Debugging Partner "just gave me the answer" rather than asking questions, or the Code Review Agent is not flagging obvious issues.</p>
+<p><strong>What to do:</strong>
+- Check the system prompt configuration — prompts can drift if edited. Compare against the canonical version in this guide.
+- Report to the program coordinator with a specific example of unexpected behaviour.
+- In the meantime, direct students to use the AI Coach with explicit framing: "Tell it what you've already tried before asking for help."</p>
+<hr />
+<h2>Phase 2 or 3 content not yet published</h2>
+<p><strong>Signs:</strong> Students asking about Phase 2 in the student guide, which shows placeholder content.</p>
+<p><strong>What to do:</strong>
+- Phase 2 content will be published before Week 6 starts. Students can see the Phase 2 overview in the concept note.
+- If students are progressing faster than expected and want to read ahead, share the module design documents from the program materials directly.</p>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

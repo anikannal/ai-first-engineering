@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 1 Facilitator Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+        <a href="../troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="../ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="../assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Phase 1 Facilitator Guide</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+  <span class="eyebrow">Facilitator Guide · Phase 1 · Weeks 1–5</span>
+  <h1>Foundations</h1>
+  <p class="subtitle">Get students into the AI-first development loop fast. Ship something real by Week 5. Build comprehension habits from day one.</p>
+</div>
+
+<h2>Phase 1 assessments at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Assessment</th>
+<th>Format</th>
+<th>When</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#code-walkthrough-detail">Code Walkthrough</a></td>
+<td>10–15 min 1:1 with coach</td>
+<td>End of Week 5</td>
+<td>Student explains 2–3 code sections including AI-generated ones</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Phase intent</h2>
+<p>Phase 1 has one job: establish productive AI-assisted development as a habit, not a novelty. By end of Week 5, every student should be able to generate code with AI, read and evaluate that code critically, and ship something to a real URL.</p>
+<p>The tone is deliberately fast and uncomfortable. Students will not fully understand everything they build in Week 1. That's correct — the goal is productive engagement with ambiguity, not mastery of every concept before moving forward.</p>
+<div class="callout instructor">
+  <span class="callout-title">Facilitator posture for Phase 1</span>
+  <p>Your job is not to explain everything. It's to create conditions where students learn by doing, hit real problems, and develop their own debugging and evaluation habits. Resist the urge to over-explain. Ask questions instead of giving answers wherever possible. The AI Coach handles the high-frequency support load — you handle the human moments.</p>
+</div>
+
+<h2>Phase 1 outcomes checklist</h2>
+<p>By end of Week 5, each student should be able to:</p>
+<ul>
+<li>[ ] Set up and use a full AI-assisted dev environment</li>
+<li>[ ] Apply the Spec → Prompt → Generate → Review → Test → Commit loop</li>
+<li>[ ] Build and deploy a basic full-stack web app</li>
+<li>[ ] Write a structured engineering prompt</li>
+<li>[ ] Read and explain AI-generated code</li>
+<li>[ ] Use Git with basic team discipline (branches, commits, PRs)</li>
+<li>[ ] Demo a product to a non-technical audience</li>
+</ul>
+<p>If a student cannot do any of these by Week 5, a remediation plan is required before Phase 2 starts.</p>
+<h2>Week-by-week facilitator guides</h2>
+<div class="card-grid">
+  <a class="card" href="week1.html">
+    <span class="card-label">Week 1</span>
+    <h3>First Ship</h3>
+    <p>Concept session script, environment setup logistics, Code Reading workshop facilitation, common W1 pitfalls.</p>
+  </a>
+  <a class="card" href="week2.html">
+    <span class="card-label">Week 2</span>
+    <h3>Build a Backend</h3>
+    <p>API mental model session, deliberate bug exercise facilitation, debugging culture building.</p>
+  </a>
+  <a class="card" href="week3.html">
+    <span class="card-label">Week 3</span>
+    <h3>Connect Frontend to Backend</h3>
+    <p>Async concept session, component mapping exercise, UX peer review facilitation.</p>
+  </a>
+  <a class="card" href="week4.html">
+    <span class="card-label">Week 4</span>
+    <h3>Persist Your Data</h3>
+    <p>Schema design review process, data integrity workshop, common W4 blockers.</p>
+  </a>
+  <a class="card" href="week5.html">
+    <span class="card-label">Week 5</span>
+    <h3>MVP Sprint</h3>
+    <p>Sprint planning facilitation, scope challenge guidance, Demo Day logistics, Code Walkthrough assessment.</p>
+  </a>
+</div>
+
+<h2>Common Phase 1 student pitfalls</h2>
+<p><strong>Accepting AI output without reading it</strong>
+The most common issue. Address it directly in the Week 1 Code Reading workshop and reinforce it throughout. If you see a student unable to explain their code during any check-in, address it immediately — this is the single most important habit.</p>
+<p><strong>Prompting in vague, conversational language</strong>
+Students default to "can you make a login page?" rather than structured engineering briefs. The Prompt Coach helps, but you should model good prompting in your concept session live demos.</p>
+<p><strong>Getting stuck on environment setup for too long</strong>
+Timebox: if any setup issue isn't resolved in 30 minutes, escalate to the Engineering Coach. Don't let a Windows driver issue consume half of Week 1.</p>
+<p><strong>Treating the MVP sprint as solo work</strong>
+Despite squads, many students default to solo coding during Week 5. Enforce PR discipline — if someone is committing directly to main, stop them and explain why it matters.</p>
+<p><strong>Demoing to impress rather than to learn</strong>
+Students often present polished, rehearsed demos that obscure what's actually working. Reframe the demo explicitly: it's a learning tool, not a performance. A live app that breaks during the demo and gets debugged in real time is often more valuable.</p>
+<h2>Escalation flags from AI Coach</h2>
+<p>The Course Coordinator will flag the following to you:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Trigger</th>
+<th>Your action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No ship by W1 Friday</td>
+<td>Student hasn't deployed</td>
+<td>Check in Monday of W2, diagnose blocker</td>
+</tr>
+<tr>
+<td>API comprehension gap</td>
+<td>W2 reflection reveals confusion</td>
+<td>1:1 before W3 starts</td>
+</tr>
+<tr>
+<td>Schema submitted without relationships</td>
+<td>Advisor flags at schema review</td>
+<td>Require revision before code starts</td>
+</tr>
+<tr>
+<td>Missing standups in W5</td>
+<td>Coordinator tracks attendance</td>
+<td>Contact squad lead same day</td>
+</tr>
+<tr>
+<td>Reflection not submitted</td>
+<td>Friday end of day</td>
+<td>Nudge Saturday, required by Monday</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div id="code-walkthrough-detail"></div>
+
+<h2>Code Walkthrough — Assessor Guide</h2>
+<p><strong>Format:</strong> 10–15 minutes · 1:1 · Human coach only (no AI involvement during the assessment itself)</p>
+<p><strong>When:</strong> End of Week 5. Schedule across Friday afternoon and the following Monday morning.</p>
+<h3>Selecting code sections</h3>
+<p>Choose 2–3 sections per student before the session. Rules:
+- At least one section that is AI-generated (visible in PR descriptions or commit messages)
+- At least one section that connects to other parts of the system — not an isolated utility
+- Vary across the squad so not everyone is assessed on the same code</p>
+<h3>Running it</h3>
+<p>Show the code on screen. Don't introduce it — just point and say <em>"walk me through this."</em> Let silence happen. Students who understand the code will start talking. Students who don't will look uncomfortable — that discomfort is diagnostic data.</p>
+<p>Good follow-up questions:
+- <em>"What would happen if this returned null?"</em>
+- <em>"Did the AI write this? What did you verify before using it?"</em>
+- <em>"What would break in the rest of the system if this function was removed?"</em></p>
+<h3>The four dimensions</h3>
+<p><strong>Comprehension</strong> — Can they accurately explain what the code does, including inputs, outputs, and side effects?</p>
+<p><strong>Critical evaluation</strong> — Do they evaluate the code, not just describe it? Can they spot a potential issue without being prompted?</p>
+<p><strong>AI awareness</strong> — Can they describe what AI generated, what they changed, and why they trusted (or modified) the output?</p>
+<p><strong>System thinking</strong> — Can they reason about this code's place in the system and trace the effects of changing it?</p>
+<h3>Scoring</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13–16</td>
+<td>Distinction</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>Borderline — coaching conversation required before Phase 2</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>Does not meet standard — remediation plan required</td>
+</tr>
+</tbody>
+</table>
+<p>A score of <strong>1 on any single dimension</strong>, regardless of total, triggers a mandatory 1:1 before Phase 2 starts.</p>
+<div><a class="card" href="assessments.html">
+  <span class="card-label">Full Rubric</span>
+  <h3>Complete scoring rubric with question bank →</h3>
+  <p>All four dimensions with descriptor text for scores 1–4, plus a full assessor question bank.</p>
+</a></div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

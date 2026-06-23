@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1: First Ship — Facilitator Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+        <a href="../troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="../ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="../assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link active">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 1</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">01</div>
+  <div class="week-header-text">
+    <h1>First Ship · Facilitator Guide</h1>
+    <p class="week-theme">Intent: establish the AI-first mental model and get everyone shipped by Friday.</p>
+  </div>
+</div>
+
+<h2>Monday — Concept Session</h2>
+<p><strong>Duration:</strong> 90 minutes<br />
+<strong>Format:</strong> Live demo-first, minimal slides</p>
+<h3>Opening (10 min)</h3>
+<p>Don't start with an agenda. Start with a demo. Take a real, non-trivial task — something like "build a REST endpoint that fetches weather data and formats it for display" — and do it twice:</p>
+<ol>
+<li>Without AI: open a file, start typing, fumble through docs</li>
+<li>With Claude Code: structured prompt, generated output, you reviewing and modifying</li>
+</ol>
+<p>The contrast sets expectations clearly. You're not showing off — you're showing the workflow.</p>
+<h3>Core content (50 min)</h3>
+<p>Walk through these points. Keep them grounded in the demo you just ran.</p>
+<p><strong>The shift:</strong> Software engineering has changed. AI-assisted development is the default at most companies hiring today. The question isn't whether to use these tools — it's how to use them with skill and judgment.</p>
+<p><strong>The mental model:</strong> You are the architect and reviewer. AI is the builder. This framing matters because it assigns the hard thinking to the human (what to build, whether it's correct, how it fits together) and the execution to the AI.</p>
+<p><strong>The tool landscape:</strong>
+- <em>Claude Code:</em> CLI-based, strong for structured multi-file tasks, excellent context management
+- <em>Cursor:</em> IDE with AI embedded, good for interactive iteration
+- <em>GitHub Copilot:</em> Inline suggestions, lower friction, less control
+- <em>Antigravity:</em> Agentic workflows, multi-step task execution</p>
+<p>No need for deep comparison. The point is that each tool has a sweet spot, and they can be used together.</p>
+<p><strong>The context window:</strong> Spend time here. This is the most important concept for understanding why AI coding tools sometimes work brilliantly and sometimes fail confusingly. The model can only see what's in its context. If you don't include the schema, it guesses. If you don't include the error, it theorises. Managing context is a core engineering skill with these tools.</p>
+<p><strong>The loop — 6 steps:</strong> Spec → Prompt → Generate → Review → Test → Commit. Write these on the board. Return to them throughout the week.</p>
+<h3>Discussion + Q&amp;A (30 min)</h3>
+<p>Open questions. Common ones:
+- <em>"Will AI replace developers?"</em> — Acknowledge, briefly redirect: the question for this program is what skills make you valuable in a world where AI is a tool.
+- <em>"How do I know when AI output is wrong?"</em> — This is the right question. You develop that judgment through the program, starting this week.</p>
+<div class="callout instructor">
+  <span class="callout-title">Facilitation note</span>
+  <p>Don't get drawn into philosophical debates about AI in Week 1. Students are energised and curious — keep the momentum toward doing. The time for nuance about AI limitations is Week 2 (the deliberate bug exercise) and beyond.</p>
+</div>
+
+<hr />
+<h2>Monday Lab — Environment Setup</h2>
+<p><strong>Duration:</strong> 2–3 hours<br />
+<strong>Common issues by platform:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Platform</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node version conflicts</td>
+<td>All</td>
+<td>Use <code>nvm</code> — install it first</td>
+</tr>
+<tr>
+<td>Claude Code auth failures</td>
+<td>All</td>
+<td>Check API key is set in env, not hardcoded</td>
+</tr>
+<tr>
+<td>WSL2 path confusion</td>
+<td>Windows</td>
+<td>Enforce work inside WSL path from the start</td>
+</tr>
+<tr>
+<td>Git credential issues</td>
+<td>All</td>
+<td><code>gh auth login</code> resolves most cases</td>
+</tr>
+<tr>
+<td>Cursor extension conflicts</td>
+<td>macOS</td>
+<td>Disable other AI extensions, restart</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Your role:</strong> Don't sit and wait for problems. Walk the room (or monitor the shared chat). Students who haven't made a commit by 90 minutes into the lab need direct intervention.</p>
+<p><strong>The 30-minute rule:</strong> Any setup blocker not resolved in 30 minutes escalates to you. The AI Coach handles the first-pass troubleshooting — you handle the edge cases.</p>
+<hr />
+<h2>Tuesday–Wednesday — First Build</h2>
+<p><strong>Your role:</strong> Light-touch monitoring. Check Prompt Coach interactions if you have access — you'll see patterns in how students are prompting that inform your Wednesday workshop.</p>
+<p><strong>What to look for:</strong>
+- Students generating without reading: the output gets pasted and run without review
+- Students abandoning the template: going back to conversational prompts
+- Students stuck in configuration loops: should have been caught in Monday lab</p>
+<hr />
+<h2>Thursday — Code Reading Workshop</h2>
+<p><strong>Duration:</strong> 60 minutes<br />
+<strong>Format:</strong> Pairs</p>
+<p>This workshop is more important than it looks. It's the first time students read code they didn't write, and many will find it uncomfortable.</p>
+<p><strong>Setup:</strong> Assign pairs — don't let students choose. Mixed-ability pairing works well here.</p>
+<p><strong>Facilitation during the 30-minute reading:</strong>
+Walk around. If a student says "I don't understand any of this" — that's fine. Tell them to pick the smallest function they can find and start there. The goal is reading discipline, not comprehension of everything.</p>
+<p><strong>Debrief (15 min):</strong> Ask the group:
+- What patterns did you notice across codebases?
+- What was commonly confusing?
+- What would have made it easier to understand?</p>
+<p>Listen for: inconsistent naming, missing comments on complex logic, AI-generated boilerplate that students couldn't explain. These are teaching moments, not failures.</p>
+<p><strong>The key point to land:</strong> Every time AI generates code for you, you are the reader who needs to understand it. This workshop is practice for that relationship.</p>
+<hr />
+<h2>Friday — First Demo Day</h2>
+<p><strong>Format:</strong> Each student demos to the squad, 2–3 minutes<br />
+<strong>The one rule you must enforce:</strong> If a student can't explain a line of code when asked, don't let it slide. Ask the question, wait for the answer, and if they can't answer — say "that's the most important moment of your week. Find out before Monday."</p>
+<p>This sets the culture for Code Walkthroughs later.</p>
+<p><strong>Weekly reflection:</strong> Confirm every student submits their reflection before end of day. The Course Coordinator flags non-submissions — follow up Saturday if needed.</p>
+<hr />
+<h2>Escalation triggers this week</h2>
+<ul>
+<li>Student hasn't deployed anything by Friday → check in first thing Monday W2</li>
+<li>Student can't explain any section of their code during Friday demo → schedule 1:1 for early W2</li>
+<li>Environment still not fully set up by Wednesday → escalate to program coordinator</li>
+</ul>
+<hr />
+<h2>Week 1 success criteria</h2>
+<p>By end of Friday, every student should have:
+- [ ] Full dev environment working (evidenced by a commit on GitHub)
+- [ ] Something deployed to a public URL
+- [ ] Completed their weekly reflection
+- [ ] Participated in the Code Reading workshop</p>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5: MVP Sprint — Facilitator Guide — Instructor Guide</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-instructor">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Instructor Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+        <a href="../troubleshooting.html" class="nav-link ">Troubleshooting</a>
+        <a href="../ai-coach-config.html" class="nav-link ">AI Coach Config</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Assessments</span>
+        <a href="../assessments.html" class="nav-link ">All Rubrics</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link active">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 5</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">05</div>
+  <div class="week-header-text">
+    <h1>MVP Sprint · Facilitator Guide</h1>
+    <p class="week-theme">Intent: run a real sprint, ship a live MVP, conduct Phase 1 Code Walkthroughs.</p>
+  </div>
+</div>
+
+<h2>Monday — Sprint Planning</h2>
+<p><strong>Your role in product discovery:</strong> You are not a product advisor. Let squads choose their own ideas. Your one constraint: scope. Almost every squad will overscope on day one.</p>
+<p><strong>Scope challenge questions to use:</strong>
+- "Can a user do the core thing in 3 clicks? If not, what can you cut?"
+- "What happens if you remove [feature X] — does the product still make sense?"
+- "What's the riskiest technical piece? Do you have 5 days to figure it out?"</p>
+<p><strong>What makes a good MVP scope:</strong>
+- One primary user action that solves a clear problem
+- Frontend + backend + database all present
+- Deployable and demoed with a real URL
+- Achievable by Thursday evening</p>
+<p><strong>Red flags in sprint plans:</strong>
+- More than 6 user-facing features
+- "We'll add auth" (auth is a Phase 2 feature — defer it)
+- Vague definitions of done ("the app works")
+- No AI-assistance plan for tasks</p>
+<hr />
+<h2>Tuesday–Thursday — Build Sprint</h2>
+<p><strong>Your presence:</strong> Check in with each squad once per day — 10 minutes, standing, at their workspace. Ask: what did you merge yesterday, what's being worked on today, what's at risk?</p>
+<p><strong>Wednesday mid-sprint check-ins:</strong> Each squad gets 15 minutes with you. Come in with the Course Coordinator's progress summary for each squad. Ask directly: what needs to be cut? Help them make the decision — don't make it for them.</p>
+<p><strong>PR discipline enforcement:</strong> Check GitHub. If students are committing directly to main, stop them in the moment. Explain: this is not bureaucracy — it's how you work safely with AI-generated code in a team context. Every PR is a review checkpoint.</p>
+<hr />
+<h2>Friday — Demo Day</h2>
+<p><strong>Logistics:</strong>
+- Invite external guests at least 1 week in advance
+- Squads need 5 minutes each — calculate total time + buffer
+- Have a backup plan if a live demo breaks (encourage squads to have a 60-second recovery plan)</p>
+<p><strong>Framing for the audience:</strong> Brief external guests that this is a student program, that the apps are 5-day MVPs, and that the goal is not polish — it's working software built by a squad of students who started the week with nothing.</p>
+<p><strong>Your role during demos:</strong> Don't intervene if something breaks. Let the squad handle it. Note how they respond to adversity — it's diagnostic.</p>
+<hr />
+<h2>Code Walkthrough Assessment</h2>
+<p><strong>Logistics:</strong> 10 minutes per student. Schedule across Friday afternoon and Monday morning. Warn students the previous Monday — not so they can over-prepare, but so they're not surprised.</p>
+<p><strong>Selecting sections to assess:</strong>
+- Choose 2–3 sections per student
+- Always include at least one AI-generated section (check PR descriptions)
+- Include at least one section connecting to other parts of the system (not an isolated utility function)
+- Vary across the squad — don't assess everyone on the same section</p>
+<p><strong>Running the walkthrough:</strong>
+- Show the code on screen. Don't introduce it — just point and say "walk me through this."
+- Let silence happen. Students who know the code will start talking. Students who don't will look uncomfortable — that's useful data.
+- Follow up: "What would break if this function returned null instead?"
+- If a student can't explain AI-generated code: "Did the AI write this? What did you verify before using it?"</p>
+<p><strong>Scoring in the moment:</strong> Fill in the rubric during or immediately after the walkthrough while it's fresh. Don't wait until end of day.</p>
+<p><strong>After walkthroughs:</strong>
+- Share scores with students individually before Phase 2 starts
+- Students scoring below 10: mandatory coaching conversation before W6
+- Identify systemic gaps across the cohort (e.g., if most students score 1 on AI Awareness — that informs how you run Phase 2)</p>
+<div><a class="card" style="margin-top:16px" href="../assessments.html">
+  <span class="card-label">Assessment</span>
+  <h3>Full Code Walkthrough rubric and question bank →</h3>
+</a></div>
+
+<hr />
+<h2>Phase 1 completion check</h2>
+<p>Before Phase 2 begins, confirm every student has:
+- [ ] A deployed MVP (with a live URL)
+- [ ] Passed or been remediated on the Code Walkthrough
+- [ ] Submitted all 5 weekly reflections (Course Coordinator has this)
+- [ ] A GitHub account with visible commit history across Phase 1</p>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

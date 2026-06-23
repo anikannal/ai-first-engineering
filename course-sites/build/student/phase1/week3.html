@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3: Connect Frontend to Backend — AI-First Engineering</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-student">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Student Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Program</span>
+        <a href="../ai-coach.html" class="nav-link ">AI Coach Setup</a>
+        <a href="../assessments.html" class="nav-link ">Assessments</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link active">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link ">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 3</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">03</div>
+  <div class="week-header-text">
+    <h1>Connect Frontend to Backend</h1>
+    <p class="week-theme">"Make it feel like a real product."</p>
+  </div>
+</div>
+
+<div class="callout goal">
+  <span class="callout-title">This Week's Goal</span>
+  <p>Build a UI that actually talks to your backend — fetches real data, sends real input, handles loading and errors gracefully. By Friday it should feel like something a real person could use.</p>
+</div>
+
+<h2>What you'll learn this week</h2>
+<ul class="outcomes-list">
+  <li>Understand the full request lifecycle in a browser app</li>
+  <li>Handle async operations: loading, error, and success states</li>
+  <li>Build React components that consume real API data</li>
+  <li>Think about user experience, not just functionality</li>
+  <li>Use component mapping to structure AI prompts effectively</li>
+</ul>
+
+<h2>Monday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Concept Session</span>
+    <h4>The Full-Stack Mental Model · 90 min</h4>
+  </div>
+  <div class="day-block-body">
+
+**The big idea:** What actually happens between a user clicking a button and seeing a result? This session traces that full journey and gives you the mental model to debug it when things go wrong.
+
+**What gets covered:**
+- The request lifecycle: browser → API → database → response → UI update
+- Async JavaScript: promises, async/await — why this exists and how to think about it
+- State in a frontend: what it is, why it matters
+- React fundamentals: components, props, state — just enough to render API data
+- Common CORS errors and how to fix them (you will hit these)
+
+  </div>
+</div>
+
+<h2>Tuesday–Thursday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Build</span>
+    <h4>Full-Stack Sprint</h4>
+  </div>
+  <div class="day-block-body">
+
+**The brief:** Build a frontend that talks to your backend. The UI must:
+- **Fetch data** from at least one API endpoint on page load
+- Let the user **submit data** via a form (POST to your API)
+- Show a **loading state** while waiting for responses
+- **Handle errors gracefully** — no blank screens, no console-only errors
+
+**Component mapping exercise (do this before writing code):**
+
+Sketch your UI on paper or a whiteboard tool. For each element, identify:
+- What data does it need?
+- Where does that data come from? (local state, API, props)
+- What happens while it's loading?
+- What happens if the request fails?
+
+Include this map in your prompt to Claude Code. The difference in output quality with vs. without it is dramatic.
+
+<span class="ai-coach-touch">AI Coach · Architecture Advisor</span> Submit your component map to the Architecture Advisor before you start coding. First use of this capability — it'll flag structural issues before they become code problems.
+
+  </div>
+</div>
+
+<h2>Thursday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Workshop</span>
+    <h4>UX Peer Review · 60 min</h4>
+  </div>
+  <div class="day-block-body">
+
+Spend 10 minutes using a squadmate's app as a real user — no explanations from the builder allowed. Note:
+- What confused you
+- What didn't work as expected
+- What you wanted to do but couldn't
+
+Give written feedback. Builders address at least one piece of it before Friday's demo.
+
+This is your first introduction to building for users, not just for demos.
+
+  </div>
+</div>
+
+<h2>Friday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Demo</span>
+    <h4>Full User Journey Demo</h4>
+  </div>
+  <div class="day-block-body">
+
+Show the complete flow — no Postman, no database viewer. Just the UI, used as a real person would use it. Show what happens when the data loads, when a form is submitted, and what the app does when something goes wrong.
+
+  </div>
+</div>
+
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Reflection</span>
+    <h4>Weekly Check-in</h4>
+  </div>
+  <div class="day-block-body">
+
+<span class="ai-coach-touch">AI Coach · Reflection Interviewer</span> This week's focus: *"What's one decision you made this week that you made yourself, without asking the AI? Why did you make it that way?"*
+
+  </div>
+</div>
+
+<hr />
+<div class="callout tip">
+  <span class="callout-title">On async and AI</span>
+  <p>AI-generated async code often works — but it rarely handles edge cases. Loading states get forgotten. Errors get swallowed silently. Network failures aren't handled. Make checking for these a standard part of your review process whenever AI generates async code.</p>
+</div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

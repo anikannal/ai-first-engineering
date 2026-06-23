@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 4: Persist Your Data — AI-First Engineering</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body class="site-student">
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-label">Student Guide</span>
+      <span class="program-name">AI-First Software Engineering</span>
+    </div>
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <a href="../index.html" class="nav-link ">Home</a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-label">Program</span>
+        <a href="../ai-coach.html" class="nav-link ">AI Coach Setup</a>
+        <a href="../assessments.html" class="nav-link ">Assessments</a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase1/index.html" class="nav-phase-header active">
+          <span class="phase-dot" style="background:#6366f1"></span>Phase 1 · Foundations
+        </a>
+        <a href="../phase1/week1.html" class="nav-link ">
+          <span class="nav-week-num">W1</span>First Ship
+        </a>
+        <a href="../phase1/week2.html" class="nav-link ">
+          <span class="nav-week-num">W2</span>Build a Backend
+        </a>
+        <a href="../phase1/week3.html" class="nav-link ">
+          <span class="nav-week-num">W3</span>Connect Frontend to Backend
+        </a>
+        <a href="../phase1/week4.html" class="nav-link active">
+          <span class="nav-week-num">W4</span>Persist Your Data
+        </a>
+        <a href="../phase1/week5.html" class="nav-link ">
+          <span class="nav-week-num">W5</span>MVP Sprint
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase2/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#8b5cf6"></span>Phase 2 · Depth
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 6–11 · Coming Soon</span>
+      </div>
+
+      <div class="nav-section">
+        <a href="../phase3/index.html" class="nav-phase-header ">
+          <span class="phase-dot" style="background:#06b6d4"></span>Phase 3 · Craft
+        </a>
+        <span class="nav-link" style="opacity:0.4;cursor:default;font-size:12px;padding-left:28px;">Weeks 12–16 · Coming Soon</span>
+      </div>
+
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        
+          
+            
+              <a href="../index.html">Home</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <a href="index.html">Phase 1</a>
+              <span class="sep">/</span>
+            
+          
+            
+              <span class="current">Week 4</span>
+            
+          
+        
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="week-header">
+  <div class="week-number">04</div>
+  <div class="week-header-text">
+    <h1>Persist Your Data</h1>
+    <p class="week-theme">"Make your app remember things."</p>
+  </div>
+</div>
+
+<div class="callout goal">
+  <span class="callout-title">This Week's Goal</span>
+  <p>Add a database to your app. By Friday you'll be able to create, read, update, and delete records — with data that survives a page refresh and a server restart.</p>
+</div>
+
+<h2>What you'll learn this week</h2>
+<ul class="outcomes-list">
+  <li>Understand why databases exist and when you need one</li>
+  <li>Design a basic data schema — the most human part of this week</li>
+  <li>Connect your app to a Postgres database using an ORM</li>
+  <li>Build full CRUD: create, read, update, delete</li>
+  <li>Think about data integrity and what can go wrong</li>
+</ul>
+
+<h2>Monday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Concept Session</span>
+    <h4>Data and Persistence · 90 min</h4>
+  </div>
+  <div class="day-block-body">
+
+**The big idea:** AI is very good at generating database code — but it doesn't know your data. Schema design is a human job. The AI executes; you architect.
+
+**What gets covered:**
+- Why not just use files? What databases actually give you
+- Relational databases: tables, rows, columns, relationships
+- SQL fundamentals: SELECT, INSERT, UPDATE, DELETE — enough to read what AI generates
+- ORMs: what they are and why they exist
+- Introduction to Supabase: provisioning a database in 5 minutes
+- Schema design: how to think about your data before writing any code
+
+  </div>
+</div>
+
+<h2>Tuesday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Design</span>
+    <h4>Schema Design (Before Any Code)</h4>
+  </div>
+  <div class="day-block-body">
+
+**Before you touch code on Tuesday**, sketch your schema on paper:
+- What are your **entities** — the things your app cares about?
+- What are the **attributes** of each entity?
+- How do they **relate** to each other? (At least one relationship required)
+
+Example: a simple task app might have `users`, `projects`, and `tasks` — where tasks belong to projects, and projects belong to users.
+
+<span class="ai-coach-touch">AI Coach · Architecture Advisor</span> Submit your schema sketch to the Architecture Advisor for feedback. It'll flag missing relationships, naming issues, and structural problems before they become migration headaches.
+
+**Schema review:** Present your schema to your Engineering Coach for a 10-minute check. Code only starts after sign-off.
+
+  </div>
+</div>
+
+<h2>Wednesday–Thursday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Build</span>
+    <h4>Database Integration Sprint</h4>
+  </div>
+  <div class="day-block-body">
+
+**The brief:** Add a database to your full-stack app. At minimum:
+- Users can **create** records (POST → INSERT)
+- Users can **view** records (GET → SELECT)
+- Data **persists** across page refreshes and server restarts
+- At least **one relationship** between two tables
+
+**Prompting tip:** Give the AI your schema explicitly — paste it into the prompt. AI-generated ORM code and migration files are dramatically better when the model has the schema in context.
+
+  </div>
+</div>
+
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Workshop</span>
+    <h4>Data Integrity Workshop · Thursday · 60 min</h4>
+  </div>
+  <div class="day-block-body">
+
+Squads try to break each other's databases:
+- Submit empty forms
+- Submit SQL injection strings in text fields
+- Create duplicate records
+- Delete a record that other records depend on
+
+The goal: develop an instinct for edge cases. Patch what you find.
+
+<span class="ai-coach-touch">AI Coach · Debugging Partner</span> Use the Debugging Partner to understand any vulnerability found and how to fix it properly.
+
+<span class="ai-coach-touch">AI Coach · Prompt Coach</span> The Prompt Coach will review the prompts you use to fix the vulnerabilities — fixing security issues requires precise prompting.
+
+  </div>
+</div>
+
+<h2>Friday</h2>
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Demo</span>
+    <h4>Full CRUD Demo</h4>
+  </div>
+  <div class="day-block-body">
+
+Show the complete data lifecycle: create something, show it persisted, update it, delete it. Then show the database state directly (Supabase dashboard or a DB viewer) so everyone can verify the data is actually there — not just in the UI.
+
+  </div>
+</div>
+
+<div class="day-block">
+  <div class="day-block-header">
+    <span class="day-tag">Reflection</span>
+    <h4>Weekly Check-in</h4>
+  </div>
+  <div class="day-block-body">
+
+<span class="ai-coach-touch">AI Coach · Reflection Interviewer</span> This week's focus: *"What did you design yourself this week, vs. let the AI design? How do you feel about that choice looking back?"*
+
+  </div>
+</div>
+
+<hr />
+<div class="callout warning">
+  <span class="callout-title">Common Week 4 blockers</span>
+  <p>Database connection errors, environment variable issues, and ORM configuration are the most common blockers this week. If you're stuck for more than 30 minutes, don't wrestle alone — ask the Debugging Partner with your full error message and config (with secrets removed).</p>
+</div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
