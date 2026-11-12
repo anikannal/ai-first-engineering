@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI-First Engineering — Apply for Cohort 1</title>
+  <title>AI-First Engineering — Apply · Cohorts Starting Dec &amp; Jan</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -482,6 +482,81 @@
     .footer-links a:hover { color: var(--text); }
     .footer-note { font-size: 12px; color: var(--muted); }
 
+    /* ── MENTORS CAROUSEL ── */
+    .mentors-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .carousel-window { overflow: hidden; }
+    .carousel-track { display: flex; gap: 20px; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+    .mentor-card {
+      flex: 0 0 calc(33.333% - 14px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .mentor-card:hover { border-color: rgba(99,102,241,0.35); }
+    .mentor-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 800;
+      margin-bottom: 16px; color: var(--heading);
+    }
+    .mentor-name { font-size: 16px; font-weight: 800; color: var(--heading); margin-bottom: 3px; }
+    .mentor-title { font-size: 12px; color: var(--cyan); font-weight: 600; margin-bottom: 2px; }
+    .mentor-company { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+    .mentor-bio { font-size: 13px; color: var(--text); line-height: 1.6; }
+    .carousel-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 28px; }
+    .c-dots { display: flex; gap: 8px; align-items: center; }
+    .c-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.25s; border: none; padding: 0; outline: none; }
+    .c-dot.active { background: var(--indigo); width: 22px; border-radius: 4px; }
+    .c-controls { display: flex; gap: 10px; }
+    .c-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--heading); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
+    .c-btn:hover { border-color: rgba(99,102,241,0.4); background: var(--surface2); }
+
+    /* ── HIRING PARTNERS ── */
+    .hiring-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .marquee-outer { position: relative; overflow: hidden; margin-top: 48px; }
+    .marquee-outer::before, .marquee-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+    .marquee-outer::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+    .marquee-outer::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+    .marquee-track { display: flex; gap: 20px; width: max-content; animation: ticker 34s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .p-logo {
+      display: flex; align-items: center; justify-content: center;
+      height: 72px; padding: 0 28px; min-width: 160px;
+      background: #fff; border-radius: 12px; flex-shrink: 0;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      opacity: 0.82;
+    }
+    .p-logo:hover { opacity: 1; box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+    .p-logo img { height: 32px; width: auto; max-width: 130px; object-fit: contain; display: block; }
+    .partners-cta {
+      margin-top: 36px; padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .partners-cta p { font-size: 15px; color: var(--muted); }
+
+    /* ── COHORT CARDS ── */
+    .cohort-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    .cohort-card {
+      border: 2px solid var(--border); border-radius: 10px; padding: 16px 20px;
+      cursor: pointer; transition: all 0.18s; position: relative;
+    }
+    .cohort-card.selected { border-color: var(--indigo); background: rgba(99,102,241,0.06); }
+    .cohort-card:hover:not(.selected) { border-color: rgba(99,102,241,0.3); }
+    .cohort-card input[type="radio"] { position: absolute; opacity: 0; }
+    .cohort-label { font-size: 15px; font-weight: 700; color: var(--heading); display: block; margin-bottom: 2px; }
+    .cohort-sub { font-size: 12px; color: var(--muted); }
+    .cohort-badge {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(16,185,129,0.1); color: var(--emerald);
+      margin-top: 6px;
+    }
+
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .nav-cohort { display: none; }
@@ -491,6 +566,10 @@
       .apply-grid, .inst-grid { grid-template-columns: 1fr; }
       .capabilities-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
+      .cohort-cards { grid-template-columns: 1fr; }
+      .mentor-card { flex: 0 0 calc(100% - 0px); }
+      .hiring-section { padding: 60px 0; }
+      .hiring-grid { gap: 8px; }
       footer { padding: 32px 24px; }
       .urgency-strip { padding: 16px 24px; }
     }
@@ -505,7 +584,7 @@
     AI-First Engineering
   </div>
   <div class="nav-right">
-    <span class="nav-cohort">Cohort 1 · Applications Open</span>
+    <span class="nav-cohort">Dec &amp; Jan Cohorts · Applications Open</span>
     <a href="#apply" class="nav-apply">Apply Now →</a>
   </div>
 </nav>
@@ -518,31 +597,31 @@
   <div class="hero-content">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      Cohort 1 — Applications Now Open
+      December &amp; January Cohorts — Applications Open
     </div>
     <h1 class="hero-title">
       Code like the<br>
       <span class="line2">industry actually works.</span>
     </h1>
-    <p class="hero-sub">A selective 3–6 month bootcamp for engineering students who want to graduate already building with AI — not learning about it in theory.</p>
+    <p class="hero-sub">A selective 4-month bootcamp for engineering students who want to graduate already building with AI — not learning about it in theory.</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn btn-hero">Apply for Cohort 1 →</a>
+      <a href="#apply" class="btn btn-hero">Apply Now →</a>
       <a href="#program" class="btn btn-ghost">See the program</a>
     </div>
     <div class="hero-social-proof">
       <div class="proof-item">
-        <span class="proof-num">20</span>
+        <span class="proof-num">2</span>
+        <span class="proof-label">Cohorts · Dec &amp; Jan</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">30</span>
         <span class="proof-label">Seats per cohort</span>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-item">
-        <span class="proof-num">3</span>
-        <span class="proof-label">Phases</span>
-      </div>
-      <div class="proof-divider"></div>
-      <div class="proof-item">
-        <span class="proof-num">1</span>
-        <span class="proof-label">Live product you own</span>
+        <span class="proof-num">4</span>
+        <span class="proof-label">Months total</span>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-item">
@@ -555,9 +634,11 @@
 
 <!-- URGENCY STRIP -->
 <div class="urgency-strip">
-  <div class="urgency-item">🗓️ <span>Cohort 1 kicks off <strong>September 2026</strong></span></div>
+  <div class="urgency-item">🗓️ <span><strong>Cohort 1</strong> · December 2026 &nbsp;|&nbsp; <strong>Cohort 2</strong> · January 2027</span></div>
   <span class="urgency-divider">·</span>
-  <div class="urgency-item">🎯 <span><strong>20 seats.</strong> Applications reviewed on a rolling basis.</span></div>
+  <div class="urgency-item">🎯 <span><strong>30 seats per cohort.</strong> Rolling applications.</span></div>
+  <span class="urgency-divider">·</span>
+  <div class="urgency-item">🏢 <span><strong>3 months</strong> building + <strong>1 month</strong> internship</span></div>
   <span class="urgency-divider">·</span>
   <div class="urgency-item">⚡ <span>Open to 3rd &amp; 4th year engineering students.</span></div>
 </div>
@@ -652,72 +733,89 @@
   <div class="container">
     <div class="section-label">The Program</div>
     <h2 class="section-title">Three phases. One real product.<br>Built by you.</h2>
-    <p class="section-intro">You don't build toy projects. You build one full-stack web application — live on the internet — that grows in complexity from your first week to your last. <a href="course-sites/build/student/index.html" style="color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(6,182,212,0.3);">Read the full student guide →</a></p>
+    <p class="section-intro">3 months of building a real product from scratch — then 1 month inside a real company. <a href="course-sites/build/student/index.html" style="color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(6,182,212,0.3);">Read the full student guide →</a></p>
 
     <div class="phases-timeline">
       <div class="phase-row p1">
         <div class="phase-line"></div>
         <div class="phase-marker">
-          <div class="phase-circle">P1</div>
+          <div class="phase-circle">M1</div>
         </div>
         <div class="phase-card">
           <div class="phase-header">
             <div class="phase-name"><a href="course-sites/build/student/phase1/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(99,102,241,0.3);">Foundations — Get something live.</a></div>
-            <span class="phase-tag">Weeks 1–5</span>
+            <span class="phase-tag">Month 1 · Weeks 1–4</span>
           </div>
-          <div class="phase-desc">Master the AI-first development loop: spec → prompt → generate → review → test → commit. Set up a real dev environment. Build your first full-stack app. By Week 5, your squad ships an MVP to a real URL and demos it to external guests.</div>
+          <div class="phase-desc">Master the AI-first development loop: spec → prompt → generate → review → test → commit. Set up a real dev environment. Build your first full-stack app with a backend, a frontend that talks to it, and a database. By Week 4, your squad ships an MVP to a real URL and demos it to external guests.</div>
           <div class="phase-weeks">
             <a class="week-chip" href="course-sites/build/student/phase1/week1.html" style="text-decoration:none;color:inherit;">W1 · First Ship</a>
-            <a class="week-chip" href="course-sites/build/student/phase1/week2.html" style="text-decoration:none;color:inherit;">W2 · Build a Backend</a>
-            <a class="week-chip" href="course-sites/build/student/phase1/week3.html" style="text-decoration:none;color:inherit;">W3 · Connect Frontend + Backend</a>
-            <a class="week-chip" href="course-sites/build/student/phase1/week4.html" style="text-decoration:none;color:inherit;">W4 · Persist Your Data</a>
-            <a class="week-chip" href="course-sites/build/student/phase1/week5.html" style="text-decoration:none;color:inherit;">W5 · MVP Sprint</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week2.html" style="text-decoration:none;color:inherit;">W2 · Backend + Frontend</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week3.html" style="text-decoration:none;color:inherit;">W3 · Database + Persistence</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week4.html" style="text-decoration:none;color:inherit;">W4 · MVP Sprint</a>
           </div>
-          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Working MVP deployed publicly</span></div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Working MVP deployed publicly + Code Walkthrough assessment</span></div>
         </div>
       </div>
 
       <div class="phase-row p2">
         <div class="phase-line"></div>
         <div class="phase-marker">
-          <div class="phase-circle">P2</div>
+          <div class="phase-circle">M2</div>
         </div>
         <div class="phase-card">
           <div class="phase-header">
             <div class="phase-name"><a href="course-sites/build/student/phase2/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(139,92,246,0.3);">Depth — Build at team scale.</a></div>
-            <span class="phase-tag">Weeks 6–11</span>
+            <span class="phase-tag">Month 2 · Weeks 5–8</span>
           </div>
-          <div class="phase-desc">Add auth, integrations, and a test suite. Run real sprint ceremonies — standups, retros, PR reviews. Learn to work as an engineering team where everyone is using AI at the same time. Internal beta where squads try to break each other's apps.</div>
+          <div class="phase-desc">Add auth, integrations, and a test suite. Run real sprint ceremonies — standups, retros, PR reviews. Learn to work as an engineering team where everyone is using AI simultaneously. Month ends with an internal beta where squads try to break each other's apps.</div>
           <div class="phase-weeks">
-            <span class="week-chip">W6 · Auth Sprint</span>
-            <span class="week-chip">W7 · Data Modeling</span>
-            <span class="week-chip">W8 · Integrations</span>
-            <span class="week-chip">W9 · Testing Sprint</span>
-            <span class="week-chip">W10 · Feature Sprint</span>
-            <span class="week-chip">W11 · Internal Beta</span>
+            <span class="week-chip">W5 · Auth Sprint</span>
+            <span class="week-chip">W6 · Data Modelling + Integrations</span>
+            <span class="week-chip">W7 · Testing + CI</span>
+            <span class="week-chip">W8 · Feature Sprint + Internal Beta</span>
           </div>
-          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Feature-complete v1 product</span></div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Feature-complete v1 + PR history review assessment</span></div>
         </div>
       </div>
 
       <div class="phase-row p3">
+        <div class="phase-line"></div>
         <div class="phase-marker">
-          <div class="phase-circle">P3</div>
+          <div class="phase-circle">M3</div>
         </div>
         <div class="phase-card">
           <div class="phase-header">
             <div class="phase-name"><a href="course-sites/build/student/phase3/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(6,182,212,0.3);">Craft — Ship with confidence.</a></div>
-            <span class="phase-tag">Weeks 12–16</span>
+            <span class="phase-tag">Month 3 · Weeks 9–12</span>
           </div>
-          <div class="phase-desc">Security audit, performance optimization, refactoring AI-generated technical debt. Polish the product. Write documentation someone else can actually follow. Prepare a launch — then do it. Demo Day is public, with industry professionals in the room.</div>
+          <div class="phase-desc">Security audit, performance optimisation, refactoring AI-generated technical debt. Polish the product, write documentation someone else can actually follow, and prepare a real launch. Demo Day is public — industry professionals in the room.</div>
           <div class="phase-weeks">
-            <span class="week-chip">W12 · Security Audit</span>
-            <span class="week-chip">W13 · Performance Sprint</span>
-            <span class="week-chip">W14 · Polish + Docs</span>
-            <span class="week-chip">W15 · Launch Prep</span>
-            <span class="week-chip">W16 · Demo Day</span>
+            <span class="week-chip">W9 · Security Audit</span>
+            <span class="week-chip">W10 · Performance + Polish</span>
+            <span class="week-chip">W11 · Docs + Launch Prep</span>
+            <span class="week-chip">W12 · Demo Day</span>
           </div>
-          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Polished v1 launch + portfolio case study</span></div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Polished v1 live + portfolio case study</span></div>
+        </div>
+      </div>
+
+      <div class="phase-row" style="--accent:#f59e0b">
+        <div class="phase-marker">
+          <div class="phase-circle" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.3);">M4</div>
+        </div>
+        <div class="phase-card" style="border-color:rgba(245,158,11,0.2);background:linear-gradient(135deg,rgba(245,158,11,0.03),var(--surface));">
+          <div class="phase-header">
+            <div class="phase-name">Industry Practice — Real company. Real codebase.</div>
+            <span class="phase-tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;">Month 4 · Placement</span>
+          </div>
+          <div class="phase-desc">A structured internship with a partner company. You contribute meaningfully as a junior engineer for four weeks — not shadowing, not a training exercise. You write code, open PRs, attend standups, and work on tasks assigned by real engineering teams. Everything from months 1–3 gets stress-tested against real conditions.</div>
+          <div class="phase-weeks">
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Onboard to a real codebase</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Open &amp; merge a real PR</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Attend sprint ceremonies</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Weekly reflection journal</span>
+          </div>
+          <div class="phase-deliverable" style="color:#a07820;">🏢 <span><strong>Deliverable:</strong> Internship completion + written industry reflection</span></div>
         </div>
       </div>
     </div>
@@ -776,6 +874,182 @@
   </div>
 </section>
 
+<!-- INDUSTRY MENTORS -->
+<section class="mentors-section">
+  <div class="container">
+    <div class="section-label">Industry Mentors</div>
+    <h2 class="section-title">Learn from builders who've shipped with AI.</h2>
+    <p class="section-intro">Our mentors are practitioners — not advisors. They're running companies, shipping products, and hiring right now. They mentor squads bi-weekly, judge Demo Day, and host Month 4 internships.</p>
+    <div class="carousel-window" id="mentor-window">
+      <div class="carousel-track" id="mentor-track">
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(99,102,241,0.12);">DV</div>
+          <div class="mentor-name">Dhaval Vasavada</div>
+          <div class="mentor-title">Associate Director</div>
+          <div class="mentor-company">HealthArk Insights</div>
+          <div class="mentor-bio">Associate Director at HealthArk Insights with deep expertise in engineering leadership, AI-driven products, and scaling technical teams. Mentors on what bar-raising engineering looks like inside a consulting-tech hybrid organization.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(6,182,212,0.12);">DK</div>
+          <div class="mentor-name">Debi Kar</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">HYRGPT</div>
+          <div class="mentor-bio">19 years across Amazon and Deloitte before going full-stack founder. Built HYRGPT, an AI-native talent-tech platform. UC Berkeley Haas MBA. Mentors on AI product development and what real engineering teams want from new hires.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(139,92,246,0.12);">JS</div>
+          <div class="mentor-name">Jigar Shukla</div>
+          <div class="mentor-title">Software Development Manager</div>
+          <div class="mentor-company">Amazon</div>
+          <div class="mentor-bio">SDM at Amazon shipping distributed systems at scale. Prior decade at Goldman Sachs in engineering. Mentors on what bar-raising engineering looks like at top-tier companies and how to review code the way senior engineers do.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(16,185,129,0.12);">AD</div>
+          <div class="mentor-name">Aniruddha Deshpande</div>
+          <div class="mentor-title">Senior Engineer</div>
+          <div class="mentor-company">N1.care</div>
+          <div class="mentor-bio">Backend engineer specializing in Elixir and distributed systems. Previously built secure messaging at KOBIL (serving 16M citizens in Istanbul's city super-app) and payments infrastructure at BlockFi. Mentors on functional programming, production-grade backends, and what real engineering discipline looks like.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(245,158,11,0.12);">SA</div>
+          <div class="mentor-name">Shreshta Anantha</div>
+          <div class="mentor-title">Associate Director</div>
+          <div class="mentor-company">HealthArk Insights</div>
+          <div class="mentor-bio">Associate Director at HealthArk Insights working at the intersection of engineering and digital health strategy. Mentors on translating technical skills into product thinking and building careers that bridge engineering and PM roles.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(99,102,241,0.12);">AK</div>
+          <div class="mentor-name">Ani Kannal</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">Logos Labs</div>
+          <div class="mentor-bio">Product and engineering leader with international experience across P&L, operations, and start-up growth. Founded Logos Labs to close the gap between how software is taught and how it is actually built.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(236,72,153,0.12);">PJ</div>
+          <div class="mentor-name">Parth Jaiswal</div>
+          <div class="mentor-title">Co-Founder &amp; CMO</div>
+          <div class="mentor-company">Curelo</div>
+          <div class="mentor-bio">Co-founded Curelo, a Gurugram-based health diagnostics platform. Knows exactly what it takes to find, hire, and trust an early technical hire at a growth-stage company. Mentors on what turns a Month 4 internship into a full offer.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(245,158,11,0.12);">VY</div>
+          <div class="mentor-name">Vikrant Yadav</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">Assistha</div>
+          <div class="mentor-bio">Founded Assistha, building AI-powered assistants for real-world workflows. Brings the founder-engineer's perspective on what it takes to ship product fast and hire people who can keep up. Mentors on building in public and the craft of AI-first development.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-footer">
+      <div class="c-dots" id="mentor-dots">
+        <button class="c-dot active" onclick="goMentor(0)"></button>
+        <button class="c-dot" onclick="goMentor(1)"></button>
+        <button class="c-dot" onclick="goMentor(2)"></button>
+        <button class="c-dot" onclick="goMentor(3)"></button>
+        <button class="c-dot" onclick="goMentor(4)"></button>
+        <button class="c-dot" onclick="goMentor(5)"></button>
+      </div>
+      <div class="c-controls">
+        <button class="c-btn" onclick="shiftMentor(-1)" aria-label="Previous">&#8592;</button>
+        <button class="c-btn" onclick="shiftMentor(1)" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRING PARTNERS -->
+<section class="hiring-section">
+  <div class="container">
+    <div class="section-label">Internship &amp; Hiring Partners</div>
+    <h2 class="section-title">Where Month 4 takes you.</h2>
+    <p class="section-intro">Our partner companies host Month 4 internships and hire from our cohorts. They shape the curriculum and judge Demo Day.</p>
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:10px;padding:12px 20px;">
+      <span style="font-size:28px;font-weight:900;color:var(--indigo);line-height:1;">30+</span>
+      <span style="font-size:14px;color:var(--text);line-height:1.4;">verified hiring partners<br><span style="color:var(--muted);font-size:12px;">across tech, fintech, health &amp; energy</span></span>
+    </div>
+  </div>
+  <div class="marquee-outer">
+    <div class="marquee-track">
+
+      <!-- Set 1 -->
+      <div class="p-logo">
+        <img src="https://logos-labs.com/_next/image?url=%2Fbrand%2Flogo.png&w=384&q=75" alt="Logos Labs">
+      </div>
+      <div class="p-logo">
+        <img src="./assets/logos/aexons-logo.png" alt="Aexons">
+      </div>
+      <div class="p-logo">
+        <img src="https://audtech.co.in/wp-content/uploads/2023/03/AudTech-Logo-Webp.png" alt="AudTech">
+      </div>
+      <div class="p-logo">
+        <img src="https://curelohealth.com/_next/static/media/logo-dark.5a762568.svg" alt="Curelo">
+      </div>
+      <div class="p-logo">
+        <img src="https://static.wixstatic.com/media/7c408e_2f60c8853d024e35a7a1cffe0da18ffa~mv2.png" alt="Docstribe">
+      </div>
+      <div class="p-logo">
+        <img src="https://www.pinclick.com/pinclick/images/PinClick%20Full%20Colour.svg" alt="Pinclick">
+      </div>
+      <div class="p-logo">
+        <img src="http://www.depasolutions.com/Logo.png" alt="Depa Solutions">
+      </div>
+      <div class="p-logo">
+        <img src="https://integrumenergy.in/assets/logo-integrum.svg" alt="Integrum Energy">
+      </div>
+      <div class="p-logo" style="gap:10px;">
+        <img src="https://growthloans.in/assets/growthloans-icon-BodMA2gb.png" alt="" style="height:28px;width:28px;border-radius:6px;">
+        <span style="font-size:14px;font-weight:700;color:#1a1a1a;white-space:nowrap;">Growth Loans</span>
+      </div>
+
+      <!-- Set 2 (seamless loop duplicate) -->
+      <div class="p-logo">
+        <img src="https://logos-labs.com/_next/image?url=%2Fbrand%2Flogo.png&w=384&q=75" alt="Logos Labs">
+      </div>
+      <div class="p-logo">
+        <img src="./assets/logos/aexons-logo.png" alt="Aexons">
+      </div>
+      <div class="p-logo">
+        <img src="https://audtech.co.in/wp-content/uploads/2023/03/AudTech-Logo-Webp.png" alt="AudTech">
+      </div>
+      <div class="p-logo">
+        <img src="https://curelohealth.com/_next/static/media/logo-dark.5a762568.svg" alt="Curelo">
+      </div>
+      <div class="p-logo">
+        <img src="https://static.wixstatic.com/media/7c408e_2f60c8853d024e35a7a1cffe0da18ffa~mv2.png" alt="Docstribe">
+      </div>
+      <div class="p-logo">
+        <img src="https://www.pinclick.com/pinclick/images/PinClick%20Full%20Colour.svg" alt="Pinclick">
+      </div>
+      <div class="p-logo">
+        <img src="http://www.depasolutions.com/Logo.png" alt="Depa Solutions">
+      </div>
+      <div class="p-logo">
+        <img src="https://integrumenergy.in/assets/logo-integrum.svg" alt="Integrum Energy">
+      </div>
+      <div class="p-logo" style="gap:10px;">
+        <img src="https://growthloans.in/assets/growthloans-icon-BodMA2gb.png" alt="" style="height:28px;width:28px;border-radius:6px;">
+        <span style="font-size:14px;font-weight:700;color:#1a1a1a;white-space:nowrap;">Growth Loans</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="partners-cta">
+      <p>Interested in mentoring, hosting interns, or hiring from our cohorts?</p>
+      <a href="mailto:anikannal@aexons.com?subject=AI-First Engineering — Industry Partner" style="color:var(--cyan);text-decoration:none;font-weight:600;font-size:14px;">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
 <!-- APPLICATION FORM -->
 <section id="apply" class="apply-section">
   <div class="apply-glow"></div>
@@ -783,8 +1057,8 @@
     <div class="apply-grid">
       <div class="apply-pitch">
         <div class="section-label">Apply</div>
-        <h2 class="section-title">20 seats.<br>One cohort.<br>Is one of them yours?</h2>
-        <p>We review applications on a rolling basis. The earlier you apply, the better your chances — spots fill before the deadline. Successful applicants hear back within 2 weeks.</p>
+        <h2 class="section-title">30 seats.<br>Two cohorts.<br>Is one of them yours?</h2>
+        <p>Four months. Three building a real product, one inside a real company. Two cohorts starting December 2026 and January 2027 — apply early, spots in both fill fast.</p>
         <div class="apply-selectivity">
           <div class="apply-selectivity-title">What to expect</div>
           <div class="selectivity-item">
@@ -804,17 +1078,34 @@
             <span>Selected students confirm their spot</span>
           </div>
           <div class="selectivity-item">
-            <span class="selectivity-icon">🚀</span>
-            <span>Cohort 1 kicks off September 2026</span>
+            <span class="selectivity-icon">🗓️</span>
+            <span><strong>Cohort 1</strong> · December 2026 &nbsp;·&nbsp; <strong>Cohort 2</strong> · January 2027</span>
           </div>
         </div>
       </div>
 
       <div class="apply-form-wrap" id="apply-form-wrap">
         <div id="form-inner">
-          <div class="form-title">Apply for Cohort 1</div>
+          <div class="form-title">Apply for a Cohort</div>
           <div class="form-subtitle">All fields required. We read every application personally.</div>
           <form id="apply-form" onsubmit="submitForm(event)">
+            <div class="form-group">
+              <label>Which cohort are you applying for?</label>
+              <div class="cohort-cards">
+                <label class="cohort-card selected" id="card-dec" onclick="selectCohort('dec')">
+                  <input type="radio" name="cohort" value="dec" checked>
+                  <span class="cohort-label">Cohort 1</span>
+                  <span class="cohort-sub">December 2026 start</span>
+                  <span class="cohort-badge">Applications open</span>
+                </label>
+                <label class="cohort-card" id="card-jan" onclick="selectCohort('jan')">
+                  <input type="radio" name="cohort" value="jan">
+                  <span class="cohort-label">Cohort 2</span>
+                  <span class="cohort-sub">January 2027 start</span>
+                  <span class="cohort-badge">Applications open</span>
+                </label>
+              </div>
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>
@@ -876,13 +1167,13 @@
       <div class="inst-content">
         <div class="section-label">For Institutions</div>
         <h2 class="section-title">Bring this to your engineering students.</h2>
-        <p>Partner with us to offer AI-First Engineering as a co-curricular program for your 3rd and 4th year students. We handle curriculum, facilitation infrastructure, and AI coaching — you provide the students and the context.</p>
-        <p>Flexible delivery: semester-mapped (Phase 1 = one semester) or intensive (all three phases across an academic year).</p>
+        <p>Partner with us to offer AI-First Engineering as a co-curricular program for your 3rd and 4th year students. We handle curriculum, facilitation infrastructure, and AI coaching — you provide the students, the institutional context, and connections to local companies for the Month 4 internship.</p>
+        <p>The 4-month structure maps cleanly to an academic calendar: 3 months across a semester, 1 month internship over the break or into the following term.</p>
         <ul class="inst-points">
-          <li>Modular — run Phase 1 alone as a semester elective, or all three phases</li>
+          <li>3 months experiential learning + 1 month structured internship</li>
           <li>Lean staffing model — the AI Coach significantly reduces facilitator load</li>
-          <li>Students graduate with a live product and GitHub portfolio</li>
-          <li>Industry mentors and a public Demo Day included</li>
+          <li>Students graduate with a live product, GitHub portfolio, and real internship on their CV</li>
+          <li>Industry mentors, Demo Day, and internship coordination included</li>
           <li>Assessment framework with rubrics and walkthroughs built in</li>
         </ul>
       </div>
@@ -908,6 +1199,61 @@
 </footer>
 
 <script>
+  /* ── Mentor Carousel ── */
+  let mPos = 0;
+  const mTotal = 6; // 8 cards, 3 visible → 6 scroll positions
+
+  function getCardStep() {
+    const track = document.getElementById('mentor-track');
+    if (!track || !track.children[0]) return 0;
+    return track.children[0].offsetWidth + 20;
+  }
+
+  function updateMentor() {
+    const track = document.getElementById('mentor-track');
+    if (!track) return;
+    track.style.transform = 'translateX(-' + (mPos * getCardStep()) + 'px)';
+    document.querySelectorAll('.c-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === mPos);
+    });
+  }
+
+  function shiftMentor(dir) {
+    const newPos = (mPos + dir + mTotal) % mTotal;
+    const isWrap = Math.abs(newPos - mPos) > 1;
+    if (isWrap) {
+      const track = document.getElementById('mentor-track');
+      track.style.transition = 'none';
+      mPos = newPos;
+      track.style.transform = 'translateX(-' + (mPos * getCardStep()) + 'px)';
+      document.querySelectorAll('.c-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === mPos);
+      });
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          track.style.transition = '';
+        });
+      });
+    } else {
+      mPos = newPos;
+      updateMentor();
+    }
+  }
+
+  function goMentor(i) {
+    mPos = i;
+    updateMentor();
+  }
+
+  /* Auto-advance every 6s */
+  setInterval(function() { shiftMentor(1); }, 6000);
+
+  function selectCohort(id) {
+    document.getElementById('card-dec').classList.remove('selected');
+    document.getElementById('card-jan').classList.remove('selected');
+    document.getElementById('card-' + id).classList.add('selected');
+  }
+
   function submitForm(e) {
     e.preventDefault();
     document.getElementById('form-inner').style.display = 'none';
