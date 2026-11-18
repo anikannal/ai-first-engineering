@@ -236,7 +236,7 @@
 
     /* ── WHO GETS IN ── */
     .selection-section {
-      background: var(--surface);
+      background: var(--surface); border-top: 1px solid var(--border);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -538,6 +538,50 @@
     }
     .partners-cta p { font-size: 15px; color: var(--muted); }
 
+    /* ── TUITION ── */
+    .tuition-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .tuition-grid { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; margin-top: 48px; }
+    .tuition-includes { }
+    .tuition-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .tuition-item:first-child { padding-top: 0; }
+    .tuition-item:last-child { border-bottom: none; }
+    .t-icon {
+      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; margin-top: 1px;
+    }
+    .t-label { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 3px; }
+    .t-desc { font-size: 13px; color: var(--text); line-height: 1.55; }
+    .tuition-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 32px 28px; position: sticky; top: 88px;
+    }
+    .tuition-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .tuition-price { font-size: 42px; font-weight: 900; color: var(--heading); letter-spacing: -0.02em; line-height: 1; }
+    .tuition-price span { font-size: 18px; font-weight: 600; color: var(--muted); vertical-align: super; margin-right: 2px; letter-spacing: 0; }
+    .tuition-note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .tuition-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .scholarship-block {
+      background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .scholarship-badge { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
+    .scholarship-amt { font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 4px; }
+    .scholarship-desc { font-size: 12px; color: var(--text); line-height: 1.5; }
+    .tuition-cta {
+      display: block; text-align: center; background: var(--heading); color: #0a0c12;
+      padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700;
+      text-decoration: none; margin-top: 20px; transition: all 0.15s;
+    }
+    .tuition-cta:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(240,244,255,0.15); }
+    @media (max-width: 900px) {
+      .tuition-grid { grid-template-columns: 1fr; }
+      .tuition-card { position: static; }
+    }
+
     /* ── COHORT CARDS ── */
     .cohort-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
     .cohort-card {
@@ -556,6 +600,49 @@
       background: rgba(16,185,129,0.1); color: var(--emerald);
       margin-top: 6px;
     }
+
+    /* ── CTA helpers ── */
+    .hero-actions { margin-bottom: 18px; }
+    .hero-microcopy { font-size: 13px; color: var(--muted); margin-bottom: 56px; }
+    .hero-microcopy strong { color: var(--emerald); font-weight: 700; }
+    .proof-num.word { font-size: 24px; }
+    .hero-social-proof { display: grid; align-items: start; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; }
+    .hero-social-proof .proof-divider { display: none; }
+    .proof-item { display: flex; flex-direction: column; justify-content: flex-start; }
+    .proof-num.word, .proof-num { min-height: 32px; display: flex; align-items: flex-end; justify-content: center; }
+    @media (max-width: 700px) { .hero-social-proof { grid-template-columns: 1fr 1fr; gap: 28px 16px; } }
+    .proof-label { max-width: 170px; margin-left: auto; margin-right: auto; }
+    .share-box {
+      margin-top: 28px; padding: 18px 20px; border: 1px solid var(--border);
+      border-radius: 12px; background: rgba(255,255,255,0.02);
+    }
+    .share-box-title { font-size: 14px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+    .share-box p { font-size: 13px; color: var(--text); margin-bottom: 12px; line-height: 1.55; }
+    .share-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-share {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 8px;
+      font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer;
+      border: 1px solid var(--border); color: var(--heading); background: var(--surface2);
+    }
+    .btn-share.wa { background: rgba(37,211,102,0.12); border-color: rgba(37,211,102,0.35); color: #4ade80; }
+    .btn-share:hover { filter: brightness(1.15); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .faq-list { max-width: 820px; margin-top: 8px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; padding: 22px 40px 22px 0; position: relative;
+      font-size: 17px; font-weight: 700; color: var(--heading);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+      font-size: 22px; font-weight: 400; color: var(--cyan); transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    .faq-answer { padding: 0 40px 22px 0; font-size: 15px; color: var(--text); line-height: 1.7; }
+    .faq-answer strong { color: var(--heading); }
 
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
@@ -603,30 +690,31 @@
       Code like the<br>
       <span class="line2">industry actually works.</span>
     </h1>
-    <p class="hero-sub">A selective 4-month bootcamp for engineering students who want to graduate already building with AI — not learning about it in theory.</p>
+    <p class="hero-sub">A selective 4-month online program for 3rd &amp; 4th year engineering students. Ship a real product with AI, intern at a real company — then move into a paid internship that can turn into a full-time offer.</p>
     <div class="hero-actions">
       <a href="#apply" class="btn btn-hero">Apply Now →</a>
       <a href="#program" class="btn btn-ghost">See the program</a>
     </div>
+    <div class="hero-microcopy">Free to apply · Takes 10 minutes · <strong>Merit scholarships up to 50%</strong></div>
     <div class="hero-social-proof">
       <div class="proof-item">
-        <span class="proof-num">2</span>
-        <span class="proof-label">Cohorts · Dec &amp; Jan</span>
+        <span class="proof-num word">12&nbsp;weeks</span>
+        <span class="proof-label">Building a real, live product</span>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-item">
-        <span class="proof-num">30</span>
-        <span class="proof-label">Seats per cohort</span>
+        <span class="proof-num word">Guaranteed</span>
+        <span class="proof-label">1-month internship at a partner company</span>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-item">
-        <span class="proof-num">4</span>
-        <span class="proof-label">Months total</span>
+        <span class="proof-num word">Paid</span>
+        <span class="proof-label">Internship next — full-time offer for top performers</span>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-item">
-        <span class="proof-num">Day&nbsp;1</span>
-        <span class="proof-label">You're shipping code</span>
+        <span class="proof-num word">Included</span>
+        <span class="proof-label">Claude Code subscription, all 4 months</span>
       </div>
     </div>
   </div>
@@ -641,6 +729,8 @@
   <div class="urgency-item">🏢 <span><strong>3 months</strong> building + <strong>1 month</strong> internship</span></div>
   <span class="urgency-divider">·</span>
   <div class="urgency-item">⚡ <span>Open to 3rd &amp; 4th year engineering students.</span></div>
+  <span class="urgency-divider">·</span>
+  <div class="urgency-item">🌐 <span><strong>100% online.</strong> Full-time, flexible hours.</span></div>
 </div>
 
 <!-- PROBLEM -->
@@ -650,77 +740,22 @@
       <div class="problem-text">
         <div class="section-label">The Reality</div>
         <h2 class="section-title">Your degree taught you to write code. The industry needs something else.</h2>
-        <p>Fresh graduates entering software companies today find themselves in environments where AI-assisted coding is the default. Developers use Claude Code, Codex, Cursor, and Antigravity to generate, review, and ship software at a pace that was impossible two years ago.</p>
-        <p>The gap isn't raw coding ability. Most graduates can write Python or JavaScript. The gap is <strong style="color:var(--heading)">workflow fluency</strong> — decomposing problems into AI-executable tasks, reviewing AI-generated code critically, and operating in a team where everyone is using AI simultaneously.</p>
-        <p>Universities teach students to write code. The industry now needs engineers who know how to <strong style="color:var(--heading)">orchestrate</strong> code — using themselves, AI agents, and automated pipelines in concert.</p>
+        <p>Walk into any software team today and AI-assisted coding is the default. The engineers you'll work alongside use Claude Code, Codex, Cursor, and Antigravity to generate, review, and ship software at a pace that was impossible two years ago.</p>
+        <p>Your problem isn't that you can't code. You can probably already write Python or JavaScript. What nobody has taught you is <strong style="color:var(--heading)">workflow fluency</strong> — breaking a problem into tasks an AI can execute, catching what AI-generated code gets wrong, and working on a team where everyone is using AI at once.</p>
+        <p>Your college teaches you to write code. Your first job will expect you to <strong style="color:var(--heading)">orchestrate</strong> it — directing AI agents and automated pipelines, and owning what ships. That's the gap this program closes.</p>
       </div>
       <div>
         <div class="problem-highlight">
-          "AI fluency is not a feature to bolt onto an engineering education. It is the new baseline."
+          "Your next interviewer will assume you use AI tools. The real question is whether you use them well."
         </div>
         <div class="stat-callout">
           <div class="stat-box">
-            <div class="stat-box-num">~2yr</div>
-            <div class="stat-box-label">Since AI coding became standard at most software companies</div>
+            <div class="stat-box-num">Then</div>
+            <div class="stat-box-label">"Can you write the code?"</div>
           </div>
           <div class="stat-box">
-            <div class="stat-box-num">0</div>
-            <div class="stat-box-label">Universities with AI-first engineering programs built around real tooling</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO GETS IN -->
-<section class="selection-section">
-  <div class="container">
-    <div class="selection-grid">
-      <div class="selection-intro">
-        <div class="section-label">Selection</div>
-        <h2 class="section-title">We pick for potential. Not grades.</h2>
-        <p>This is not a course you register for. It's a program you apply to. We keep cohorts small — 20 students — so every person gets real mentorship, real code reviews, and a team that pushes them.</p>
-        <p>We're looking for students who are hungry to build, honest about what they don't know, and ready to be uncomfortable in the best possible way.</p>
-        <div class="selection-note">
-          <div class="selection-note-icon">💡</div>
-          <div>You don't need experience with AI tools. You need the mindset to learn to use them well. That's exactly what we're selecting for.</div>
-        </div>
-      </div>
-      <div class="criteria-list">
-        <div class="criterion">
-          <div class="criterion-icon">🔥</div>
-          <div>
-            <div class="criterion-name">Drive to ship</div>
-            <div class="criterion-desc">We want students who feel physically uncomfortable not building something. Grades optional; side projects preferred.</div>
-          </div>
-        </div>
-        <div class="criterion">
-          <div class="criterion-icon">🧠</div>
-          <div>
-            <div class="criterion-name">Intellectual honesty</div>
-            <div class="criterion-desc">Can you tell us what you don't understand? The students who grow the most are the ones who know where their gaps are.</div>
-          </div>
-        </div>
-        <div class="criterion">
-          <div class="criterion-icon">🤝</div>
-          <div>
-            <div class="criterion-name">Teammate mentality</div>
-            <div class="criterion-desc">You'll work in squads. A student who makes the whole squad better is worth more than a brilliant solo builder.</div>
-          </div>
-        </div>
-        <div class="criterion">
-          <div class="criterion-icon">⚙️</div>
-          <div>
-            <div class="criterion-name">Basic coding foundation</div>
-            <div class="criterion-desc">At least one programming language. You don't need to be an expert — you need to be able to read and reason about code.</div>
-          </div>
-        </div>
-        <div class="criterion">
-          <div class="criterion-icon">🚀</div>
-          <div>
-            <div class="criterion-name">Curiosity about AI tools</div>
-            <div class="criterion-desc">You should already be experimenting with AI in some context — not necessarily coding. Tell us what you've tried.</div>
+            <div class="stat-box-num">Now</div>
+            <div class="stat-box-label">"Can you ship it with AI — and catch what the AI gets wrong?"</div>
           </div>
         </div>
       </div>
@@ -732,7 +767,7 @@
 <section id="program">
   <div class="container">
     <div class="section-label">The Program</div>
-    <h2 class="section-title">Three phases. One real product.<br>Built by you.</h2>
+    <h2 class="section-title">Four months. One real product.<br>Built by you.</h2>
     <p class="section-intro">3 months of building a real product from scratch — then 1 month inside a real company. <a href="course-sites/build/student/index.html" style="color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(6,182,212,0.3);">Read the full student guide →</a></p>
 
     <div class="phases-timeline">
@@ -833,8 +868,7 @@
           "You're not just learning about AI-assisted workflows. You're living inside one."
         </div>
         <p>Every student has access to a purpose-built AI Coach — a set of configured AI tools scoped specifically to this program's curriculum, your projects, and your squad. It's not a generic chatbot.</p>
-        <p>Code Review Agent. Debugging Partner. Architecture Advisor. Prompt Coach. Sprint Assistant. Concept Tutor. Weekly Reflection Interviewer. Course Coordinator.</p>
-        <p style="font-size:15px; color:var(--muted)">Human coaches are reserved for the moments AI can't handle: judgment calls, motivation, and real-world perspective. The AI Coach absorbs everything else — so you get support on demand, 24/7.</p>
+        <p style="font-size:15px; color:var(--muted)">Your human mentors focus on what matters most: judgment calls, career advice, and real-world perspective. The AI Coach handles everything else — so you're never stuck waiting for help, day or night.</p>
       </div>
       <div class="capabilities-grid">
         <div class="capability">
@@ -971,10 +1005,9 @@
   <div class="container">
     <div class="section-label">Internship &amp; Hiring Partners</div>
     <h2 class="section-title">Where Month 4 takes you.</h2>
-    <p class="section-intro">Our partner companies host Month 4 internships and hire from our cohorts. They shape the curriculum and judge Demo Day.</p>
+    <p class="section-intro">Our partner companies host Month 4 internships, offer paid internships to graduates, and help shape the curriculum and judge Demo Day.</p>
     <div style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:10px;padding:12px 20px;">
-      <span style="font-size:28px;font-weight:900;color:var(--indigo);line-height:1;">30+</span>
-      <span style="font-size:14px;color:var(--text);line-height:1.4;">verified hiring partners<br><span style="color:var(--muted);font-size:12px;">across tech, fintech, health &amp; energy</span></span>
+      <span style="font-size:14px;color:var(--text);line-height:1.4;"><strong style="color:var(--heading);">A growing network of hiring partners</strong><br><span style="color:var(--muted);font-size:12px;">across tech, fintech, health &amp; energy</span></span>
     </div>
   </div>
   <div class="marquee-outer">
@@ -1050,6 +1083,186 @@
   </div>
 </section>
 
+<!-- TUITION -->
+<section class="tuition-section">
+  <div class="container">
+    <div class="section-label">Tuition</div>
+    <h2 class="section-title">Everything you need to go from student to hired.</h2>
+    <p class="section-intro">One fee. No hidden costs. No upsells. Here's exactly what's included.</p>
+
+    <div class="tuition-grid">
+
+      <!-- What's included -->
+      <div class="tuition-includes">
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(99,102,241,0.12);">🏗️</div>
+          <div>
+            <div class="t-label">3 months of experiential learning</div>
+            <div class="t-desc">Every week you build and ship something real — no slides-only theory. Projects escalate from first deployment in Week 1 to a full-stack MVP by Month 1, then into depth, craft, and advanced AI tooling across Months 2 and 3.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(6,182,212,0.12);">🤝</div>
+          <div>
+            <div class="t-label">Human mentors + AI coaching, throughout</div>
+            <div class="t-desc">Bi-weekly squad sessions with industry practitioners. An always-on AI coach trained on the curriculum — answers questions, runs weekly async check-ins, and escalates to human coaches when it matters.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(16,185,129,0.12);">💻</div>
+          <div>
+            <div class="t-label">Claude Code subscription — all 4 months</div>
+            <div class="t-desc">Your AI-first development environment, included from day one. You'll use Claude Code the way working engineers do — not as a shortcut, but as a force multiplier. The subscription is yours for the full duration of the program.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(245,158,11,0.12);">🏢</div>
+          <div>
+            <div class="t-label">Guaranteed Month 4 internship at a partner company</div>
+            <div class="t-desc">Not simulated. Not a case study. Every student gets a one-month internship inside a real company, on a live problem, with a real team. Placements are with our hiring partners — the same companies that shaped the curriculum and judge Demo Day.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(236,72,153,0.12);">🚀</div>
+          <div>
+            <div class="t-label">Paid internship on successful completion — and a shot at a full-time offer</div>
+            <div class="t-desc">Finish the 4-month program successfully and we place you in a 2-month paid internship with one of our hiring partners. Perform well there, and it converts into a full-time offer.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pricing card -->
+      <div class="tuition-card">
+        <div class="tuition-label">Program fee</div>
+        <div class="tuition-price"><span>₹</span>50,000</div>
+        <div class="tuition-note">All-inclusive · No hidden fees · One-time payment</div>
+
+        <hr class="tuition-divider">
+
+        <div class="scholarship-block">
+          <div class="scholarship-badge">Merit Scholarship</div>
+          <div class="scholarship-amt">50% waiver available</div>
+          <div class="scholarship-desc">Your evaluation score decides it — not your background or circumstances. The strongest applicants earn the scholarship automatically. We tell you at the time of your offer.</div>
+        </div>
+
+        <a href="#apply" class="tuition-cta">Apply for a Cohort →</a>
+
+        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5;">Applications are reviewed holistically. The scholarship evaluation is part of the standard process — no separate application needed.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">The practical stuff.</h2>
+    <p class="section-intro">What students (and parents) ask us before applying.</p>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Is this full-time? How many hours a week?</summary>
+        <div class="faq-answer">Yes — treat it as your <strong>full-time commitment for the semester</strong>. But very little of it is scheduled: the only fixed-time slots are mentor sessions, evaluations, and industry expert lectures. Everything else — building, sprints, squad work — you plan and do on your own time, the way real engineering teams work.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will it clash with my college classes or exams?</summary>
+        <div class="faq-answer">Most colleges let students take a semester out for an industry program like this one. Check with your department before you apply — and if you need a letter or program details to share with your college, we're happy to provide them.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is it online or in person?</summary>
+        <div class="faq-answer"><strong>100% online.</strong> You can join from anywhere. All you need is a laptop and a reliable internet connection.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is the Month 4 internship guaranteed? Is it paid?</summary>
+        <div class="faq-answer">Yes, it's <strong>guaranteed</strong> — every student who completes Months 1–3 is placed in a one-month internship with a partner company. This internship is unpaid; it's part of the program, where you prove what you've built on a real codebase.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What happens after the program?</summary>
+        <div class="faq-answer">Students who complete the program successfully move into a <strong>2-month paid internship</strong> with one of our hiring partners. Students who perform well in that internship receive a <strong>full-time offer</strong>.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I get a certificate?</summary>
+        <div class="faq-answer">Yes. You'll receive a certificate of completion — along with something more valuable to recruiters: a live product, a GitHub history of real PRs, and an internship on your CV.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do I need to bring?</summary>
+        <div class="faq-answer">Your own laptop and a stable internet connection. Your <strong>Claude Code subscription is included</strong> in the fee for all 4 months.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO GETS IN -->
+<section class="selection-section">
+  <div class="container">
+    <div class="selection-grid">
+      <div class="selection-intro">
+        <div class="section-label">Selection</div>
+        <h2 class="section-title">We pick for potential. Not grades.</h2>
+        <p>This is not a course you register for. It's a program you apply to. We cap each cohort at 30 students so every person gets real mentorship, real code reviews, and a team that pushes them.</p>
+        <p>We're looking for students who are hungry to build, honest about what they don't know, and ready to be uncomfortable in the best possible way.</p>
+        <div class="selection-note">
+          <div class="selection-note-icon">💡</div>
+          <div>You don't need experience with AI tools. You need the mindset to learn to use them well. That's exactly what we're selecting for.</div>
+        </div>
+      </div>
+      <div class="criteria-list">
+        <div class="criterion">
+          <div class="criterion-icon">🔥</div>
+          <div>
+            <div class="criterion-name">Drive to ship</div>
+            <div class="criterion-desc">We want students who feel physically uncomfortable not building something. Grades optional; side projects preferred.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🧠</div>
+          <div>
+            <div class="criterion-name">Intellectual honesty</div>
+            <div class="criterion-desc">Can you tell us what you don't understand? The students who grow the most are the ones who know where their gaps are.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🤝</div>
+          <div>
+            <div class="criterion-name">Teammate mentality</div>
+            <div class="criterion-desc">You'll work in squads. A student who makes the whole squad better is worth more than a brilliant solo builder.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">⚙️</div>
+          <div>
+            <div class="criterion-name">Basic coding foundation</div>
+            <div class="criterion-desc">At least one programming language. You don't need to be an expert — you need to be able to read and reason about code.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🚀</div>
+          <div>
+            <div class="criterion-name">Curiosity about AI tools</div>
+            <div class="criterion-desc">You should already be experimenting with AI in some context — not necessarily coding. Tell us what you've tried.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- APPLICATION FORM -->
 <section id="apply" class="apply-section">
   <div class="apply-glow"></div>
@@ -1057,8 +1270,8 @@
     <div class="apply-grid">
       <div class="apply-pitch">
         <div class="section-label">Apply</div>
-        <h2 class="section-title">30 seats.<br>Two cohorts.<br>Is one of them yours?</h2>
-        <p>Four months. Three building a real product, one inside a real company. Two cohorts starting December 2026 and January 2027 — apply early, spots in both fill fast.</p>
+        <h2 class="section-title">30 seats per cohort.<br>Two cohorts.<br>Is one of them yours?</h2>
+        <p>Four months. Three building a real product, one inside a real company. Two cohorts starting December 2026 and January 2027. We review on a rolling basis, so earlier applicants hear back first.</p>
         <div class="apply-selectivity">
           <div class="apply-selectivity-title">What to expect</div>
           <div class="selectivity-item">
@@ -1067,7 +1280,7 @@
           </div>
           <div class="selectivity-item">
             <span class="selectivity-icon">📬</span>
-            <span>We review and respond within 2 weeks</span>
+            <span>We review every application personally — you'll hear back within 48 hours</span>
           </div>
           <div class="selectivity-item">
             <span class="selectivity-icon">💬</span>
@@ -1081,13 +1294,25 @@
             <span class="selectivity-icon">🗓️</span>
             <span><strong>Cohort 1</strong> · December 2026 &nbsp;·&nbsp; <strong>Cohort 2</strong> · January 2027</span>
           </div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">🎓</span>
+            <span><strong>Merit scholarships up to 50%</strong> — decided by your evaluation, no separate application</span>
+          </div>
+        </div>
+        <div class="share-box">
+          <div class="share-box-title">Deciding with your family?</div>
+          <p>Send them this page — or ask us anything before you apply.</p>
+          <div class="share-actions">
+            <a href="#" class="btn-share wa" id="share-wa" target="_blank" rel="noopener">Share on WhatsApp</a>
+            <a href="mailto:anikannal@aexons.com?subject=Question about AI-First Engineering" class="btn-share">Email us a question</a>
+          </div>
         </div>
       </div>
 
       <div class="apply-form-wrap" id="apply-form-wrap">
         <div id="form-inner">
           <div class="form-title">Apply for a Cohort</div>
-          <div class="form-subtitle">All fields required. We read every application personally.</div>
+          <div class="form-subtitle">Free to apply · About 10 minutes · We read every application personally.</div>
           <form id="apply-form" onsubmit="submitForm(event)">
             <div class="form-group">
               <label>Which cohort are you applying for?</label>
@@ -1120,6 +1345,10 @@
               <label for="email">Email</label>
               <input type="email" id="email" placeholder="you@university.edu" required>
             </div>
+            <div class="form-group">
+              <label for="phone">Phone (WhatsApp)</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210" pattern="[+0-9 ()-]{10,16}" required>
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="university">University</label>
@@ -1147,55 +1376,30 @@
               <textarea id="why" placeholder="Tell us what you're hoping to get from this, and why now..." required></textarea>
             </div>
             <button type="submit" class="form-submit">Submit Application →</button>
-            <div class="form-footnote">We keep cohorts small intentionally. Apply early — we review on a rolling basis.</div>
+            <div class="form-footnote">You'll hear back within 48 hours. Merit scholarships up to 50% are decided as part of your review.</div>
           </form>
         </div>
         <div class="form-success" id="form-success">
           <div class="success-icon">🎉</div>
           <div class="success-title">Application received.</div>
-          <div class="success-text">We'll review your application and get back to you within 2 weeks.<br>Keep building things in the meantime.</div>
+          <div class="success-text">We'll review your application and get back to you within 48 hours.<br>Keep building things in the meantime.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOR INSTITUTIONS -->
-<section class="institutions-section">
-  <div class="container">
-    <div class="inst-grid">
-      <div class="inst-content">
-        <div class="section-label">For Institutions</div>
-        <h2 class="section-title">Bring this to your engineering students.</h2>
-        <p>Partner with us to offer AI-First Engineering as a co-curricular program for your 3rd and 4th year students. We handle curriculum, facilitation infrastructure, and AI coaching — you provide the students, the institutional context, and connections to local companies for the Month 4 internship.</p>
-        <p>The 4-month structure maps cleanly to an academic calendar: 3 months across a semester, 1 month internship over the break or into the following term.</p>
-        <ul class="inst-points">
-          <li>3 months experiential learning + 1 month structured internship</li>
-          <li>Lean staffing model — the AI Coach significantly reduces facilitator load</li>
-          <li>Students graduate with a live product, GitHub portfolio, and real internship on their CV</li>
-          <li>Industry mentors, Demo Day, and internship coordination included</li>
-          <li>Assessment framework with rubrics and walkthroughs built in</li>
-        </ul>
-      </div>
-      <div class="inst-contact">
-        <h3>Let's talk about a cohort.</h3>
-        <p>We're onboarding our first institutional partners for 2026 delivery. If you're interested in bringing this to your students, reach out — we'd love to understand your context.</p>
-        <a href="mailto:anikannal@aexons.com?subject=AI-First Engineering — Institutional Partnership" class="btn-inst">Get in touch →</a>
-        <div class="inst-detail">We respond to all institutional enquiries within 48 hours. Detailed program information, staffing model, and commercial terms available on request.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-brand">AI-First Engineering · Aexons</span>
+  <span class="footer-brand">AI-First Engineering</span>
   <div class="footer-links">
     <a href="course-sites/build/student/index.html">Student Guide</a>
+    <a href="institutions.html">For Colleges</a>
     <a href="course-sites/build/instructor/index.html">Facilitator Guide</a>
     <a href="mailto:anikannal@aexons.com">Contact</a>
   </div>
-  <span class="footer-note">© 2026 Aexons. All rights reserved.</span>
+  <span class="footer-note">© 2026 AI-First Engineering. All rights reserved.</span>
 </footer>
 
 <script>
@@ -1254,11 +1458,48 @@
     document.getElementById('card-' + id).classList.add('selected');
   }
 
+  /* ── WhatsApp share ── */
+  (function() {
+    var a = document.getElementById('share-wa');
+    if (!a) return;
+    var msg = "Take a look at AI-First Engineering — a 4-month online program where I'd build a real product with AI, do a guaranteed internship, and move into a paid internship after: " + window.location.href.split('#')[0];
+    a.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+  })();
+
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDox4NX_lguCLGViJyitBVJpdMk5CBhYRJBXdXYqa2tV2_RYN_rWGb__kT01h0sdA/exec';
+
   function submitForm(e) {
     e.preventDefault();
-    document.getElementById('form-inner').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-    // TODO: wire up to a real form backend (Formspree, Supabase, etc.)
+    var btn = document.querySelector('.form-submit');
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    var data = {
+      cohort:     document.querySelector('input[name="cohort"]:checked').value,
+      fname:      document.getElementById('fname').value,
+      lname:      document.getElementById('lname').value,
+      email:      document.getElementById('email').value,
+      phone:      document.getElementById('phone').value,
+      university: document.getElementById('university').value,
+      year:       document.getElementById('year').value,
+      aiExp:      document.getElementById('ai-exp').value,
+      built:      document.getElementById('built').value,
+      why:        document.getElementById('why').value
+    };
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',          // Apps Script doesn't return CORS headers; we send and trust
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function() {
+      document.getElementById('form-inner').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }).catch(function() {
+      btn.textContent = 'Submit Application →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email us at anikannal@aexons.com');
+    });
   }
 </script>
 

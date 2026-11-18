@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-First Engineering — Apply · Cohorts Starting Dec &amp; Jan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0c12;
+      --surface:   #11141f;
+      --surface2:  #171c2c;
+      --border:    #222840;
+      --text:      #b8c4df;
+      --heading:   #f0f4ff;
+      --muted:     #58637a;
+      --cyan:      #06b6d4;
+      --violet:    #8b5cf6;
+      --indigo:    #6366f1;
+      --emerald:   #10b981;
+      --pink:      #ec4899;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px; line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(10,12,18,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--heading);
+    }
+    .nav-logo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-cohort {
+      font-size: 12px; font-weight: 600;
+      color: var(--cyan);
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.2);
+      padding: 5px 14px; border-radius: 20px;
+      letter-spacing: 0.06em;
+    }
+    .nav-apply {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--heading); color: #0a0c12;
+      padding: 9px 22px; border-radius: 7px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none; transition: all 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .nav-apply:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(240,244,255,0.2); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; place-items: center;
+      padding: 120px 48px 80px;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero-content { max-width: 860px; position: relative; z-index: 1; }
+
+    /* ambient glows */
+    .hero-glow-1 {
+      position: absolute; top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute; bottom: -150px; left: 20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-glow-3 {
+      position: absolute; bottom: 0px; right: 10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(6,182,212,0.07);
+      border: 1px solid rgba(6,182,212,0.2);
+      padding: 7px 18px; border-radius: 20px;
+      margin-bottom: 36px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    h1.hero-title {
+      font-size: clamp(44px, 7vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: var(--heading);
+      margin-bottom: 28px;
+    }
+    h1.hero-title .line2 {
+      background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 19px; line-height: 1.65;
+      color: var(--text); max-width: 580px;
+      margin: 0 auto 48px;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 32px; border-radius: 9px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: all 0.18s;
+      cursor: pointer; border: none; letter-spacing: 0.01em;
+    }
+    .btn-hero {
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      color: #fff;
+      box-shadow: 0 0 40px rgba(99,102,241,0.3);
+    }
+    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 48px rgba(99,102,241,0.45); }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.15); color: var(--heading); background: var(--surface); }
+
+    .hero-social-proof {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; flex-wrap: wrap;
+      padding-top: 48px; border-top: 1px solid var(--border);
+    }
+    .proof-item { text-align: center; }
+    .proof-num {
+      display: block; font-size: 32px; font-weight: 900;
+      letter-spacing: -0.03em; color: var(--heading);
+      line-height: 1;
+    }
+    .proof-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+    .proof-divider { width: 1px; height: 48px; background: var(--border); }
+
+    /* ── URGENCY STRIP ── */
+    .urgency-strip {
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08));
+      border-top: 1px solid rgba(99,102,241,0.2);
+      border-bottom: 1px solid rgba(99,102,241,0.2);
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+      text-align: center;
+    }
+    .urgency-item {
+      font-size: 14px; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .urgency-item strong { color: var(--heading); }
+    .urgency-divider { color: var(--border); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 48px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 14px; font-weight: 600;
+    }
+    h2.section-title {
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 900; letter-spacing: -0.03em;
+      color: var(--heading); margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .section-intro {
+      font-size: 18px; color: var(--text);
+      max-width: 600px; margin-bottom: 60px; line-height: 1.7;
+    }
+
+    /* ── PROBLEM ── */
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .problem-text p { margin-bottom: 20px; font-size: 17px; line-height: 1.8; }
+    .problem-highlight {
+      border-left: 3px solid var(--violet);
+      background: linear-gradient(135deg, rgba(139,92,246,0.05), transparent);
+      padding: 28px 32px; border-radius: 0 12px 12px 0;
+      font-size: 20px; line-height: 1.6; color: var(--heading);
+      font-weight: 500; margin-bottom: 20px;
+    }
+    .stat-callout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 24px;
+    }
+    .stat-box-num { font-size: 32px; font-weight: 900; letter-spacing: -0.03em; color: var(--heading); line-height: 1; margin-bottom: 6px; }
+    .stat-box-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── WHO GETS IN ── */
+    .selection-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .selection-intro h2 { margin-bottom: 20px; }
+    .selection-intro p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: var(--text); }
+    .selection-note {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: rgba(6,182,212,0.05);
+      border: 1px solid rgba(6,182,212,0.15);
+      border-radius: 10px; padding: 16px 20px;
+      font-size: 14px; color: var(--text); line-height: 1.6;
+    }
+    .selection-note-icon { font-size: 18px; flex-shrink: 0; }
+
+    .criteria-list { display: flex; flex-direction: column; gap: 14px; }
+    .criterion {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+    .criterion:hover { border-color: rgba(99,102,241,0.4); }
+    .criterion-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+      background: rgba(99,102,241,0.1);
+    }
+    .criterion-name { font-size: 14px; font-weight: 700; color: var(--heading); margin-bottom: 3px; }
+    .criterion-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── PHASES ── */
+    .phases-timeline { position: relative; }
+    .phase-row {
+      display: grid; grid-template-columns: 80px 1fr; gap: 32px;
+      margin-bottom: 0; position: relative;
+    }
+    .phase-row:not(:last-child) .phase-line {
+      position: absolute; left: 39px; top: 80px; bottom: -24px; width: 2px;
+      background: linear-gradient(to bottom, var(--border), transparent);
+    }
+    .phase-marker {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding-top: 24px;
+    }
+    .phase-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .p1 .phase-circle { background: rgba(99,102,241,0.12); color: var(--indigo); border: 1px solid rgba(99,102,241,0.3); }
+    .p2 .phase-circle { background: rgba(139,92,246,0.12); color: var(--violet); border: 1px solid rgba(139,92,246,0.3); }
+    .p3 .phase-circle { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.3); }
+
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .phase-card:hover { transform: translateX(4px); }
+    .p1 .phase-card:hover { border-color: rgba(99,102,241,0.4); }
+    .p2 .phase-card:hover { border-color: rgba(139,92,246,0.4); }
+    .p3 .phase-card:hover { border-color: rgba(6,182,212,0.4); }
+    .phase-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 16px; }
+    .phase-name { font-size: 20px; font-weight: 800; color: var(--heading); }
+    .phase-tag {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+    }
+    .p1 .phase-tag { background: rgba(99,102,241,0.1); color: var(--indigo); }
+    .p2 .phase-tag { background: rgba(139,92,246,0.1); color: var(--violet); }
+    .p3 .phase-tag { background: rgba(6,182,212,0.1); color: var(--cyan); }
+    .phase-desc { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 20px; }
+    .phase-weeks { display: flex; flex-wrap: wrap; gap: 8px; }
+    .week-chip {
+      font-size: 12px; font-weight: 500;
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 20px; color: var(--muted);
+    }
+    .phase-deliverable {
+      margin-top: 16px; font-size: 13px;
+      display: flex; align-items: center; gap: 8px;
+      color: var(--muted);
+    }
+    .phase-deliverable strong { color: var(--text); }
+
+    /* ── AI COACH ── */
+    .coach-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .coach-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+    .coach-intro p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; }
+    .coach-strap {
+      font-size: 22px; font-weight: 700; color: var(--heading);
+      line-height: 1.4; margin-bottom: 24px;
+      border-left: 3px solid var(--violet);
+      padding-left: 20px;
+    }
+    .capabilities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .capability {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+      transition: border-color 0.2s;
+    }
+    .capability:hover { border-color: rgba(139,92,246,0.35); }
+    .cap-name { font-size: 13px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+    .cap-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── APPLICATION FORM ── */
+    .apply-section {
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .apply-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .apply-pitch h2 { margin-bottom: 20px; }
+    .apply-pitch p { font-size: 17px; line-height: 1.8; margin-bottom: 24px; }
+    .apply-selectivity {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+    }
+    .apply-selectivity-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .selectivity-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px; color: var(--text);
+    }
+    .selectivity-item:last-child { border-bottom: none; }
+    .selectivity-icon { font-size: 16px; width: 24px; text-align: center; }
+
+    /* Form */
+    .apply-form-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px;
+      position: relative; z-index: 1;
+    }
+    .apply-form-wrap::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--violet), var(--pink));
+      border-radius: 16px 16px 0 0;
+    }
+    .form-title { font-size: 20px; font-weight: 800; color: var(--heading); margin-bottom: 6px; }
+    .form-subtitle { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label {
+      display: block; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 7px;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 11px 14px;
+      font-size: 14px; color: var(--heading);
+      font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    input:focus, select:focus, textarea:focus { border-color: rgba(99,102,241,0.5); }
+    select { cursor: pointer; }
+    select option { background: #1a1f30; }
+    textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      color: #fff; padding: 15px;
+      border-radius: 9px; font-size: 15px; font-weight: 700;
+      cursor: pointer; border: none; font-family: inherit;
+      transition: all 0.18s; letter-spacing: 0.02em;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.3);
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(99,102,241,0.4); }
+    .form-footnote {
+      text-align: center; font-size: 12px; color: var(--muted);
+      margin-top: 14px; line-height: 1.6;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none; text-align: center; padding: 40px 20px;
+    }
+    .success-icon { font-size: 48px; margin-bottom: 16px; }
+    .success-title { font-size: 22px; font-weight: 800; color: var(--heading); margin-bottom: 10px; }
+    .success-text { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+    /* ── FOR INSTITUTIONS ── */
+    .institutions-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .inst-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+    .inst-content p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; }
+    .inst-points { list-style: none; margin-bottom: 32px; }
+    .inst-points li {
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+      font-size: 15px; display: flex; align-items: flex-start; gap: 12px; color: var(--text);
+    }
+    .inst-points li:last-child { border-bottom: none; }
+    .inst-points li::before { content: '→'; color: var(--indigo); flex-shrink: 0; margin-top: 2px; }
+    .inst-contact {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px;
+    }
+    .inst-contact h3 { font-size: 20px; font-weight: 800; color: var(--heading); margin-bottom: 12px; }
+    .inst-contact p { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 28px; }
+    .btn-inst {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--indigo); color: #fff;
+      padding: 13px 28px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; text-decoration: none;
+      transition: all 0.18s;
+    }
+    .btn-inst:hover { background: #4f52d9; transform: translateY(-1px); }
+    .inst-detail { font-size: 13px; color: var(--muted); margin-top: 16px; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .footer-brand { font-size: 14px; font-weight: 700; color: var(--heading); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-note { font-size: 12px; color: var(--muted); }
+
+    /* ── MENTORS CAROUSEL ── */
+    .mentors-section { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .carousel-window { overflow: hidden; }
+    .carousel-track { display: flex; gap: 20px; transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+    .mentor-card {
+      flex: 0 0 calc(33.333% - 14px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 24px;
+      transition: border-color 0.2s;
+    }
+    .mentor-card:hover { border-color: rgba(99,102,241,0.35); }
+    .mentor-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 800;
+      margin-bottom: 16px; color: var(--heading);
+    }
+    .mentor-name { font-size: 16px; font-weight: 800; color: var(--heading); margin-bottom: 3px; }
+    .mentor-title { font-size: 12px; color: var(--cyan); font-weight: 600; margin-bottom: 2px; }
+    .mentor-company { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+    .mentor-bio { font-size: 13px; color: var(--text); line-height: 1.6; }
+    .carousel-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 28px; }
+    .c-dots { display: flex; gap: 8px; align-items: center; }
+    .c-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.25s; border: none; padding: 0; outline: none; }
+    .c-dot.active { background: var(--indigo); width: 22px; border-radius: 4px; }
+    .c-controls { display: flex; gap: 10px; }
+    .c-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--heading); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
+    .c-btn:hover { border-color: rgba(99,102,241,0.4); background: var(--surface2); }
+
+    /* ── HIRING PARTNERS ── */
+    .hiring-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .marquee-outer { position: relative; overflow: hidden; margin-top: 48px; }
+    .marquee-outer::before, .marquee-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+    .marquee-outer::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+    .marquee-outer::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+    .marquee-track { display: flex; gap: 20px; width: max-content; animation: ticker 34s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .p-logo {
+      display: flex; align-items: center; justify-content: center;
+      height: 72px; padding: 0 28px; min-width: 160px;
+      background: #fff; border-radius: 12px; flex-shrink: 0;
+      transition: opacity 0.2s, box-shadow 0.2s;
+      opacity: 0.82;
+    }
+    .p-logo:hover { opacity: 1; box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+    .p-logo img { height: 32px; width: auto; max-width: 130px; object-fit: contain; display: block; }
+    .partners-cta {
+      margin-top: 36px; padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .partners-cta p { font-size: 15px; color: var(--muted); }
+
+    /* ── TUITION ── */
+    .tuition-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .tuition-grid { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; margin-top: 48px; }
+    .tuition-includes { }
+    .tuition-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .tuition-item:first-child { padding-top: 0; }
+    .tuition-item:last-child { border-bottom: none; }
+    .t-icon {
+      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; margin-top: 1px;
+    }
+    .t-label { font-size: 15px; font-weight: 700; color: var(--heading); margin-bottom: 3px; }
+    .t-desc { font-size: 13px; color: var(--text); line-height: 1.55; }
+    .tuition-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 32px 28px; position: sticky; top: 88px;
+    }
+    .tuition-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .tuition-price { font-size: 42px; font-weight: 900; color: var(--heading); letter-spacing: -0.02em; line-height: 1; }
+    .tuition-price span { font-size: 18px; font-weight: 600; color: var(--muted); vertical-align: super; margin-right: 2px; letter-spacing: 0; }
+    .tuition-note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .tuition-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .scholarship-block {
+      background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .scholarship-badge { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--indigo); margin-bottom: 6px; }
+    .scholarship-amt { font-size: 22px; font-weight: 900; color: var(--indigo); margin-bottom: 4px; }
+    .scholarship-desc { font-size: 12px; color: var(--text); line-height: 1.5; }
+    .tuition-cta {
+      display: block; text-align: center; background: var(--heading); color: #0a0c12;
+      padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700;
+      text-decoration: none; margin-top: 20px; transition: all 0.15s;
+    }
+    .tuition-cta:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(240,244,255,0.15); }
+    @media (max-width: 900px) {
+      .tuition-grid { grid-template-columns: 1fr; }
+      .tuition-card { position: static; }
+    }
+
+    /* ── COHORT CARDS ── */
+    .cohort-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    .cohort-card {
+      border: 2px solid var(--border); border-radius: 10px; padding: 16px 20px;
+      cursor: pointer; transition: all 0.18s; position: relative;
+    }
+    .cohort-card.selected { border-color: var(--indigo); background: rgba(99,102,241,0.06); }
+    .cohort-card:hover:not(.selected) { border-color: rgba(99,102,241,0.3); }
+    .cohort-card input[type="radio"] { position: absolute; opacity: 0; }
+    .cohort-label { font-size: 15px; font-weight: 700; color: var(--heading); display: block; margin-bottom: 2px; }
+    .cohort-sub { font-size: 12px; color: var(--muted); }
+    .cohort-badge {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(16,185,129,0.1); color: var(--emerald);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-cohort { display: none; }
+      .hero { padding: 100px 24px 64px; }
+      section { padding: 72px 24px; }
+      .problem-grid, .selection-grid, .coach-grid,
+      .apply-grid, .inst-grid { grid-template-columns: 1fr; }
+      .capabilities-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .cohort-cards { grid-template-columns: 1fr; }
+      .mentor-card { flex: 0 0 calc(100% - 0px); }
+      .hiring-section { padding: 60px 0; }
+      .hiring-grid { gap: 8px; }
+      footer { padding: 32px 24px; }
+      .urgency-strip { padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-dot"></div>
+    AI-First Engineering
+  </div>
+  <div class="nav-right">
+    <span class="nav-cohort">Dec &amp; Jan Cohorts · Applications Open</span>
+    <a href="#apply" class="nav-apply">Apply Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-glow-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      December &amp; January Cohorts — Applications Open
+    </div>
+    <h1 class="hero-title">
+      Code like the<br>
+      <span class="line2">industry actually works.</span>
+    </h1>
+    <p class="hero-sub">A selective 4-month bootcamp for engineering students who want to graduate already building with AI — not learning about it in theory.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn btn-hero">Apply Now →</a>
+      <a href="#program" class="btn btn-ghost">See the program</a>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-item">
+        <span class="proof-num">2</span>
+        <span class="proof-label">Cohorts · Dec &amp; Jan</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">30</span>
+        <span class="proof-label">Seats per cohort</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">4</span>
+        <span class="proof-label">Months total</span>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-item">
+        <span class="proof-num">Day&nbsp;1</span>
+        <span class="proof-label">You're shipping code</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- URGENCY STRIP -->
+<div class="urgency-strip">
+  <div class="urgency-item">🗓️ <span><strong>Cohort 1</strong> · December 2026 &nbsp;|&nbsp; <strong>Cohort 2</strong> · January 2027</span></div>
+  <span class="urgency-divider">·</span>
+  <div class="urgency-item">🎯 <span><strong>30 seats per cohort.</strong> Rolling applications.</span></div>
+  <span class="urgency-divider">·</span>
+  <div class="urgency-item">🏢 <span><strong>3 months</strong> building + <strong>1 month</strong> internship</span></div>
+  <span class="urgency-divider">·</span>
+  <div class="urgency-item">⚡ <span>Open to 3rd &amp; 4th year engineering students.</span></div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-text">
+        <div class="section-label">The Reality</div>
+        <h2 class="section-title">Your degree taught you to write code. The industry needs something else.</h2>
+        <p>Fresh graduates entering software companies today find themselves in environments where AI-assisted coding is the default. Developers use Claude Code, Codex, Cursor, and Antigravity to generate, review, and ship software at a pace that was impossible two years ago.</p>
+        <p>The gap isn't raw coding ability. Most graduates can write Python or JavaScript. The gap is <strong style="color:var(--heading)">workflow fluency</strong> — decomposing problems into AI-executable tasks, reviewing AI-generated code critically, and operating in a team where everyone is using AI simultaneously.</p>
+        <p>Universities teach students to write code. The industry now needs engineers who know how to <strong style="color:var(--heading)">orchestrate</strong> code — using themselves, AI agents, and automated pipelines in concert.</p>
+      </div>
+      <div>
+        <div class="problem-highlight">
+          "AI fluency is not a feature to bolt onto an engineering education. It is the new baseline."
+        </div>
+        <div class="stat-callout">
+          <div class="stat-box">
+            <div class="stat-box-num">~2yr</div>
+            <div class="stat-box-label">Since AI coding became standard at most software companies</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-num">0</div>
+            <div class="stat-box-label">Universities with AI-first engineering programs built around real tooling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO GETS IN -->
+<section class="selection-section">
+  <div class="container">
+    <div class="selection-grid">
+      <div class="selection-intro">
+        <div class="section-label">Selection</div>
+        <h2 class="section-title">We pick for potential. Not grades.</h2>
+        <p>This is not a course you register for. It's a program you apply to. We keep cohorts small — 20 students — so every person gets real mentorship, real code reviews, and a team that pushes them.</p>
+        <p>We're looking for students who are hungry to build, honest about what they don't know, and ready to be uncomfortable in the best possible way.</p>
+        <div class="selection-note">
+          <div class="selection-note-icon">💡</div>
+          <div>You don't need experience with AI tools. You need the mindset to learn to use them well. That's exactly what we're selecting for.</div>
+        </div>
+      </div>
+      <div class="criteria-list">
+        <div class="criterion">
+          <div class="criterion-icon">🔥</div>
+          <div>
+            <div class="criterion-name">Drive to ship</div>
+            <div class="criterion-desc">We want students who feel physically uncomfortable not building something. Grades optional; side projects preferred.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🧠</div>
+          <div>
+            <div class="criterion-name">Intellectual honesty</div>
+            <div class="criterion-desc">Can you tell us what you don't understand? The students who grow the most are the ones who know where their gaps are.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🤝</div>
+          <div>
+            <div class="criterion-name">Teammate mentality</div>
+            <div class="criterion-desc">You'll work in squads. A student who makes the whole squad better is worth more than a brilliant solo builder.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">⚙️</div>
+          <div>
+            <div class="criterion-name">Basic coding foundation</div>
+            <div class="criterion-desc">At least one programming language. You don't need to be an expert — you need to be able to read and reason about code.</div>
+          </div>
+        </div>
+        <div class="criterion">
+          <div class="criterion-icon">🚀</div>
+          <div>
+            <div class="criterion-name">Curiosity about AI tools</div>
+            <div class="criterion-desc">You should already be experimenting with AI in some context — not necessarily coding. Tell us what you've tried.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="container">
+    <div class="section-label">The Program</div>
+    <h2 class="section-title">Three phases. One real product.<br>Built by you.</h2>
+    <p class="section-intro">3 months of building a real product from scratch — then 1 month inside a real company. <a href="course-sites/build/student/index.html" style="color:var(--cyan);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(6,182,212,0.3);">Read the full student guide →</a></p>
+
+    <div class="phases-timeline">
+      <div class="phase-row p1">
+        <div class="phase-line"></div>
+        <div class="phase-marker">
+          <div class="phase-circle">M1</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-header">
+            <div class="phase-name"><a href="course-sites/build/student/phase1/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(99,102,241,0.3);">Foundations — Get something live.</a></div>
+            <span class="phase-tag">Month 1 · Weeks 1–4</span>
+          </div>
+          <div class="phase-desc">Master the AI-first development loop: spec → prompt → generate → review → test → commit. Set up a real dev environment. Build your first full-stack app with a backend, a frontend that talks to it, and a database. By Week 4, your squad ships an MVP to a real URL and demos it to external guests.</div>
+          <div class="phase-weeks">
+            <a class="week-chip" href="course-sites/build/student/phase1/week1.html" style="text-decoration:none;color:inherit;">W1 · First Ship</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week2.html" style="text-decoration:none;color:inherit;">W2 · Backend + Frontend</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week3.html" style="text-decoration:none;color:inherit;">W3 · Database + Persistence</a>
+            <a class="week-chip" href="course-sites/build/student/phase1/week4.html" style="text-decoration:none;color:inherit;">W4 · MVP Sprint</a>
+          </div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Working MVP deployed publicly + Code Walkthrough assessment</span></div>
+        </div>
+      </div>
+
+      <div class="phase-row p2">
+        <div class="phase-line"></div>
+        <div class="phase-marker">
+          <div class="phase-circle">M2</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-header">
+            <div class="phase-name"><a href="course-sites/build/student/phase2/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(139,92,246,0.3);">Depth — Build at team scale.</a></div>
+            <span class="phase-tag">Month 2 · Weeks 5–8</span>
+          </div>
+          <div class="phase-desc">Add auth, integrations, and a test suite. Run real sprint ceremonies — standups, retros, PR reviews. Learn to work as an engineering team where everyone is using AI simultaneously. Month ends with an internal beta where squads try to break each other's apps.</div>
+          <div class="phase-weeks">
+            <span class="week-chip">W5 · Auth Sprint</span>
+            <span class="week-chip">W6 · Data Modelling + Integrations</span>
+            <span class="week-chip">W7 · Testing + CI</span>
+            <span class="week-chip">W8 · Feature Sprint + Internal Beta</span>
+          </div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Feature-complete v1 + PR history review assessment</span></div>
+        </div>
+      </div>
+
+      <div class="phase-row p3">
+        <div class="phase-line"></div>
+        <div class="phase-marker">
+          <div class="phase-circle">M3</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-header">
+            <div class="phase-name"><a href="course-sites/build/student/phase3/index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(6,182,212,0.3);">Craft — Ship with confidence.</a></div>
+            <span class="phase-tag">Month 3 · Weeks 9–12</span>
+          </div>
+          <div class="phase-desc">Security audit, performance optimisation, refactoring AI-generated technical debt. Polish the product, write documentation someone else can actually follow, and prepare a real launch. Demo Day is public — industry professionals in the room.</div>
+          <div class="phase-weeks">
+            <span class="week-chip">W9 · Security Audit</span>
+            <span class="week-chip">W10 · Performance + Polish</span>
+            <span class="week-chip">W11 · Docs + Launch Prep</span>
+            <span class="week-chip">W12 · Demo Day</span>
+          </div>
+          <div class="phase-deliverable">🎯 <span><strong>Deliverable:</strong> Polished v1 live + portfolio case study</span></div>
+        </div>
+      </div>
+
+      <div class="phase-row" style="--accent:#f59e0b">
+        <div class="phase-marker">
+          <div class="phase-circle" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.3);">M4</div>
+        </div>
+        <div class="phase-card" style="border-color:rgba(245,158,11,0.2);background:linear-gradient(135deg,rgba(245,158,11,0.03),var(--surface));">
+          <div class="phase-header">
+            <div class="phase-name">Industry Practice — Real company. Real codebase.</div>
+            <span class="phase-tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;">Month 4 · Placement</span>
+          </div>
+          <div class="phase-desc">A structured internship with a partner company. You contribute meaningfully as a junior engineer for four weeks — not shadowing, not a training exercise. You write code, open PRs, attend standups, and work on tasks assigned by real engineering teams. Everything from months 1–3 gets stress-tested against real conditions.</div>
+          <div class="phase-weeks">
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Onboard to a real codebase</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Open &amp; merge a real PR</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Attend sprint ceremonies</span>
+            <span class="week-chip" style="border-color:rgba(245,158,11,0.2);color:#a07820;">Weekly reflection journal</span>
+          </div>
+          <div class="phase-deliverable" style="color:#a07820;">🏢 <span><strong>Deliverable:</strong> Internship completion + written industry reflection</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI COACH -->
+<section class="coach-section">
+  <div class="container">
+    <div class="coach-grid">
+      <div class="coach-intro">
+        <div class="section-label">The AI Coach</div>
+        <h2 class="section-title">Your first point of contact. Always on.</h2>
+        <div class="coach-strap">
+          "You're not just learning about AI-assisted workflows. You're living inside one."
+        </div>
+        <p>Every student has access to a purpose-built AI Coach — a set of configured AI tools scoped specifically to this program's curriculum, your projects, and your squad. It's not a generic chatbot.</p>
+        <p>Code Review Agent. Debugging Partner. Architecture Advisor. Prompt Coach. Sprint Assistant. Concept Tutor. Weekly Reflection Interviewer. Course Coordinator.</p>
+        <p style="font-size:15px; color:var(--muted)">Human coaches are reserved for the moments AI can't handle: judgment calls, motivation, and real-world perspective. The AI Coach absorbs everything else — so you get support on demand, 24/7.</p>
+      </div>
+      <div class="capabilities-grid">
+        <div class="capability">
+          <div class="cap-name">🧠 Course Coordinator</div>
+          <div class="cap-desc">Tracks your progress, nudges you when you're falling behind, briefs coaches before check-ins.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">🔍 Code Review Agent</div>
+          <div class="cap-desc">Reviews PRs for correctness, security, and readability. Flags over-reliance on AI patterns.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">🐛 Debugging Partner</div>
+          <div class="cap-desc">Walks you through bugs Socratically — asks questions, doesn't give answers. Builds your instincts.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">🏗️ Architecture Advisor</div>
+          <div class="cap-desc">Reviews system design decisions and flags anti-patterns before they become technical debt.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">✍️ Prompt Coach</div>
+          <div class="cap-desc">Reviews the prompts you write to your coding AI tools. Meta-AI literacy as a skill.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">📋 Sprint Assistant</div>
+          <div class="cap-desc">Helps your squad break down requirements into tasks and keep the sprint on track.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">📚 Concept Tutor</div>
+          <div class="cap-desc">Answers conceptual questions about full-stack development with curriculum-aware context.</div>
+        </div>
+        <div class="capability">
+          <div class="cap-name">🪞 Reflection Interviewer</div>
+          <div class="cap-desc">Weekly async check-in. Surfaces blockers and escalates to human coaches when needed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY MENTORS -->
+<section class="mentors-section">
+  <div class="container">
+    <div class="section-label">Industry Mentors</div>
+    <h2 class="section-title">Learn from builders who've shipped with AI.</h2>
+    <p class="section-intro">Our mentors are practitioners — not advisors. They're running companies, shipping products, and hiring right now. They mentor squads bi-weekly, judge Demo Day, and host Month 4 internships.</p>
+    <div class="carousel-window" id="mentor-window">
+      <div class="carousel-track" id="mentor-track">
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(99,102,241,0.12);">DV</div>
+          <div class="mentor-name">Dhaval Vasavada</div>
+          <div class="mentor-title">Associate Director</div>
+          <div class="mentor-company">HealthArk Insights</div>
+          <div class="mentor-bio">Associate Director at HealthArk Insights with deep expertise in engineering leadership, AI-driven products, and scaling technical teams. Mentors on what bar-raising engineering looks like inside a consulting-tech hybrid organization.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(6,182,212,0.12);">DK</div>
+          <div class="mentor-name">Debi Kar</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">HYRGPT</div>
+          <div class="mentor-bio">19 years across Amazon and Deloitte before going full-stack founder. Built HYRGPT, an AI-native talent-tech platform. UC Berkeley Haas MBA. Mentors on AI product development and what real engineering teams want from new hires.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(139,92,246,0.12);">JS</div>
+          <div class="mentor-name">Jigar Shukla</div>
+          <div class="mentor-title">Software Development Manager</div>
+          <div class="mentor-company">Amazon</div>
+          <div class="mentor-bio">SDM at Amazon shipping distributed systems at scale. Prior decade at Goldman Sachs in engineering. Mentors on what bar-raising engineering looks like at top-tier companies and how to review code the way senior engineers do.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(16,185,129,0.12);">AD</div>
+          <div class="mentor-name">Aniruddha Deshpande</div>
+          <div class="mentor-title">Senior Engineer</div>
+          <div class="mentor-company">N1.care</div>
+          <div class="mentor-bio">Backend engineer specializing in Elixir and distributed systems. Previously built secure messaging at KOBIL (serving 16M citizens in Istanbul's city super-app) and payments infrastructure at BlockFi. Mentors on functional programming, production-grade backends, and what real engineering discipline looks like.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(245,158,11,0.12);">SA</div>
+          <div class="mentor-name">Shreshta Anantha</div>
+          <div class="mentor-title">Associate Director</div>
+          <div class="mentor-company">HealthArk Insights</div>
+          <div class="mentor-bio">Associate Director at HealthArk Insights working at the intersection of engineering and digital health strategy. Mentors on translating technical skills into product thinking and building careers that bridge engineering and PM roles.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(99,102,241,0.12);">AK</div>
+          <div class="mentor-name">Ani Kannal</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">Logos Labs</div>
+          <div class="mentor-bio">Product and engineering leader with international experience across P&L, operations, and start-up growth. Founded Logos Labs to close the gap between how software is taught and how it is actually built.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(236,72,153,0.12);">PJ</div>
+          <div class="mentor-name">Parth Jaiswal</div>
+          <div class="mentor-title">Co-Founder &amp; CMO</div>
+          <div class="mentor-company">Curelo</div>
+          <div class="mentor-bio">Co-founded Curelo, a Gurugram-based health diagnostics platform. Knows exactly what it takes to find, hire, and trust an early technical hire at a growth-stage company. Mentors on what turns a Month 4 internship into a full offer.</div>
+        </div>
+
+        <div class="mentor-card">
+          <div class="mentor-avatar" style="background:rgba(245,158,11,0.12);">VY</div>
+          <div class="mentor-name">Vikrant Yadav</div>
+          <div class="mentor-title">Founder &amp; CEO</div>
+          <div class="mentor-company">Assistha</div>
+          <div class="mentor-bio">Founded Assistha, building AI-powered assistants for real-world workflows. Brings the founder-engineer's perspective on what it takes to ship product fast and hire people who can keep up. Mentors on building in public and the craft of AI-first development.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-footer">
+      <div class="c-dots" id="mentor-dots">
+        <button class="c-dot active" onclick="goMentor(0)"></button>
+        <button class="c-dot" onclick="goMentor(1)"></button>
+        <button class="c-dot" onclick="goMentor(2)"></button>
+        <button class="c-dot" onclick="goMentor(3)"></button>
+        <button class="c-dot" onclick="goMentor(4)"></button>
+        <button class="c-dot" onclick="goMentor(5)"></button>
+      </div>
+      <div class="c-controls">
+        <button class="c-btn" onclick="shiftMentor(-1)" aria-label="Previous">&#8592;</button>
+        <button class="c-btn" onclick="shiftMentor(1)" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIRING PARTNERS -->
+<section class="hiring-section">
+  <div class="container">
+    <div class="section-label">Internship &amp; Hiring Partners</div>
+    <h2 class="section-title">Where Month 4 takes you.</h2>
+    <p class="section-intro">Our partner companies host Month 4 internships and hire from our cohorts. They shape the curriculum and judge Demo Day.</p>
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-top:20px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:10px;padding:12px 20px;">
+      <span style="font-size:28px;font-weight:900;color:var(--indigo);line-height:1;">30+</span>
+      <span style="font-size:14px;color:var(--text);line-height:1.4;">verified hiring partners<br><span style="color:var(--muted);font-size:12px;">across tech, fintech, health &amp; energy</span></span>
+    </div>
+  </div>
+  <div class="marquee-outer">
+    <div class="marquee-track">
+
+      <!-- Set 1 -->
+      <div class="p-logo">
+        <img src="https://logos-labs.com/_next/image?url=%2Fbrand%2Flogo.png&w=384&q=75" alt="Logos Labs">
+      </div>
+      <div class="p-logo">
+        <img src="./assets/logos/aexons-logo.png" alt="Aexons">
+      </div>
+      <div class="p-logo">
+        <img src="https://audtech.co.in/wp-content/uploads/2023/03/AudTech-Logo-Webp.png" alt="AudTech">
+      </div>
+      <div class="p-logo">
+        <img src="https://curelohealth.com/_next/static/media/logo-dark.5a762568.svg" alt="Curelo">
+      </div>
+      <div class="p-logo">
+        <img src="https://static.wixstatic.com/media/7c408e_2f60c8853d024e35a7a1cffe0da18ffa~mv2.png" alt="Docstribe">
+      </div>
+      <div class="p-logo">
+        <img src="https://www.pinclick.com/pinclick/images/PinClick%20Full%20Colour.svg" alt="Pinclick">
+      </div>
+      <div class="p-logo">
+        <img src="http://www.depasolutions.com/Logo.png" alt="Depa Solutions">
+      </div>
+      <div class="p-logo">
+        <img src="https://integrumenergy.in/assets/logo-integrum.svg" alt="Integrum Energy">
+      </div>
+      <div class="p-logo" style="gap:10px;">
+        <img src="https://growthloans.in/assets/growthloans-icon-BodMA2gb.png" alt="" style="height:28px;width:28px;border-radius:6px;">
+        <span style="font-size:14px;font-weight:700;color:#1a1a1a;white-space:nowrap;">Growth Loans</span>
+      </div>
+
+      <!-- Set 2 (seamless loop duplicate) -->
+      <div class="p-logo">
+        <img src="https://logos-labs.com/_next/image?url=%2Fbrand%2Flogo.png&w=384&q=75" alt="Logos Labs">
+      </div>
+      <div class="p-logo">
+        <img src="./assets/logos/aexons-logo.png" alt="Aexons">
+      </div>
+      <div class="p-logo">
+        <img src="https://audtech.co.in/wp-content/uploads/2023/03/AudTech-Logo-Webp.png" alt="AudTech">
+      </div>
+      <div class="p-logo">
+        <img src="https://curelohealth.com/_next/static/media/logo-dark.5a762568.svg" alt="Curelo">
+      </div>
+      <div class="p-logo">
+        <img src="https://static.wixstatic.com/media/7c408e_2f60c8853d024e35a7a1cffe0da18ffa~mv2.png" alt="Docstribe">
+      </div>
+      <div class="p-logo">
+        <img src="https://www.pinclick.com/pinclick/images/PinClick%20Full%20Colour.svg" alt="Pinclick">
+      </div>
+      <div class="p-logo">
+        <img src="http://www.depasolutions.com/Logo.png" alt="Depa Solutions">
+      </div>
+      <div class="p-logo">
+        <img src="https://integrumenergy.in/assets/logo-integrum.svg" alt="Integrum Energy">
+      </div>
+      <div class="p-logo" style="gap:10px;">
+        <img src="https://growthloans.in/assets/growthloans-icon-BodMA2gb.png" alt="" style="height:28px;width:28px;border-radius:6px;">
+        <span style="font-size:14px;font-weight:700;color:#1a1a1a;white-space:nowrap;">Growth Loans</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="partners-cta">
+      <p>Interested in mentoring, hosting interns, or hiring from our cohorts?</p>
+      <a href="mailto:anikannal@aexons.com?subject=AI-First Engineering — Industry Partner" style="color:var(--cyan);text-decoration:none;font-weight:600;font-size:14px;">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TUITION -->
+<section class="tuition-section">
+  <div class="container">
+    <div class="section-label">Tuition</div>
+    <h2 class="section-title">Everything you need to go from zero to hired.</h2>
+    <p class="section-intro">One fee. No hidden costs. No upsells. Here's exactly what's included.</p>
+
+    <div class="tuition-grid">
+
+      <!-- What's included -->
+      <div class="tuition-includes">
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(99,102,241,0.12);">🏗️</div>
+          <div>
+            <div class="t-label">3 months of experiential learning</div>
+            <div class="t-desc">Every week you build and ship something real — no slides-only theory. Projects escalate from first deployment in Week 1 to a full-stack MVP by Month 1, then into depth, craft, and advanced AI tooling across Months 2 and 3.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(6,182,212,0.12);">🤝</div>
+          <div>
+            <div class="t-label">Human mentors + AI coaching, throughout</div>
+            <div class="t-desc">Bi-weekly squad sessions with industry practitioners. An always-on AI coach trained on the curriculum — answers questions, runs weekly async check-ins, and escalates to human coaches when it matters.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(16,185,129,0.12);">💻</div>
+          <div>
+            <div class="t-label">Claude Code subscription — all 4 months</div>
+            <div class="t-desc">Your AI-first development environment, included from day one. You'll use Claude Code the way working engineers do — not as a shortcut, but as a force multiplier. The subscription is yours for the full duration of the program.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(245,158,11,0.12);">🏢</div>
+          <div>
+            <div class="t-label">Month 4 internship at a partner company</div>
+            <div class="t-desc">Not simulated. Not a case study. You'll work inside a real company, on a live problem, with a real team. Placements are with our hiring partners — the same companies that shaped the curriculum and judge Demo Day.</div>
+          </div>
+        </div>
+
+        <div class="tuition-item">
+          <div class="t-icon" style="background:rgba(236,72,153,0.12);">🚀</div>
+          <div>
+            <div class="t-label">Industry placement on successful completion</div>
+            <div class="t-desc">Students who complete the 4-month program are connected to our network of 30+ hiring partners. We don't guarantee placement — we don't need to. The work speaks for itself.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pricing card -->
+      <div class="tuition-card">
+        <div class="tuition-label">Program fee</div>
+        <div class="tuition-price"><span>₹</span>50,000</div>
+        <div class="tuition-note">All-inclusive · No hidden fees · One-time payment</div>
+
+        <hr class="tuition-divider">
+
+        <div class="scholarship-block">
+          <div class="scholarship-badge">Merit Scholarship</div>
+          <div class="scholarship-amt">50% waiver available</div>
+          <div class="scholarship-desc">Your evaluation score decides it — not your background or circumstances. The strongest applicants earn the scholarship automatically. We tell you at the time of your offer.</div>
+        </div>
+
+        <a href="#apply" class="tuition-cta">Apply for a Cohort →</a>
+
+        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5;">Applications are reviewed holistically. The scholarship evaluation is part of the standard process — no separate application needed.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section id="apply" class="apply-section">
+  <div class="apply-glow"></div>
+  <div class="container">
+    <div class="apply-grid">
+      <div class="apply-pitch">
+        <div class="section-label">Apply</div>
+        <h2 class="section-title">30 seats.<br>Two cohorts.<br>Is one of them yours?</h2>
+        <p>Four months. Three building a real product, one inside a real company. Two cohorts starting December 2026 and January 2027 — apply early, spots in both fill fast.</p>
+        <div class="apply-selectivity">
+          <div class="apply-selectivity-title">What to expect</div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">📝</span>
+            <span>Fill in the form — takes 5–10 minutes</span>
+          </div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">📬</span>
+            <span>We review every application personally</span>
+          </div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">💬</span>
+            <span>Shortlisted candidates get a 20-min call</span>
+          </div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">✅</span>
+            <span>Selected students confirm their spot</span>
+          </div>
+          <div class="selectivity-item">
+            <span class="selectivity-icon">🗓️</span>
+            <span><strong>Cohort 1</strong> · December 2026 &nbsp;·&nbsp; <strong>Cohort 2</strong> · January 2027</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apply-form-wrap" id="apply-form-wrap">
+        <div id="form-inner">
+          <div class="form-title">Apply for a Cohort</div>
+          <div class="form-subtitle">All fields required. We read every application personally.</div>
+          <form id="apply-form" onsubmit="submitForm(event)">
+            <div class="form-group">
+              <label>Which cohort are you applying for?</label>
+              <div class="cohort-cards">
+                <label class="cohort-card selected" id="card-dec" onclick="selectCohort('dec')">
+                  <input type="radio" name="cohort" value="dec" checked>
+                  <span class="cohort-label">Cohort 1</span>
+                  <span class="cohort-sub">December 2026 start</span>
+                  <span class="cohort-badge">Applications open</span>
+                </label>
+                <label class="cohort-card" id="card-jan" onclick="selectCohort('jan')">
+                  <input type="radio" name="cohort" value="jan">
+                  <span class="cohort-label">Cohort 2</span>
+                  <span class="cohort-sub">January 2027 start</span>
+                  <span class="cohort-badge">Applications open</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" placeholder="Priya" required>
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" placeholder="Sharma" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="you@university.edu" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" id="university" placeholder="VIT, BITS, IIT..." required>
+              </div>
+              <div class="form-group">
+                <label for="year">Year of Study</label>
+                <select id="year" required>
+                  <option value="" disabled selected>Select year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ai-exp">Have you used any AI coding tools? If yes, which ones?</label>
+              <input type="text" id="ai-exp" placeholder="e.g. GitHub Copilot, ChatGPT for debugging, nothing yet..." required>
+            </div>
+            <div class="form-group">
+              <label for="built">What's the most interesting thing you've built? (link optional)</label>
+              <input type="text" id="built" placeholder="e.g. A college events app with 200 users — github.com/..." required>
+            </div>
+            <div class="form-group">
+              <label for="why">Why do you want in? Be specific. (2–4 sentences)</label>
+              <textarea id="why" placeholder="Tell us what you're hoping to get from this, and why now..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Submit Application →</button>
+            <div class="form-footnote">We keep cohorts small intentionally. Apply early — we review on a rolling basis.</div>
+          </form>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="success-icon">🎉</div>
+          <div class="success-title">Application received.</div>
+          <div class="success-text">We'll review your application and reach out soon.<br>Keep building things in the meantime.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR INSTITUTIONS -->
+<section class="institutions-section">
+  <div class="container">
+    <div class="inst-grid">
+      <div class="inst-content">
+        <div class="section-label">For Institutions</div>
+        <h2 class="section-title">Bring this to your engineering students.</h2>
+        <p>Partner with us to offer AI-First Engineering as a co-curricular program for your 3rd and 4th year students. We handle curriculum, facilitation infrastructure, and AI coaching — you provide the students, the institutional context, and connections to local companies for the Month 4 internship.</p>
+        <p>The 4-month structure maps cleanly to an academic calendar: 3 months across a semester, 1 month internship over the break or into the following term.</p>
+        <ul class="inst-points">
+          <li>3 months experiential learning + 1 month structured internship</li>
+          <li>Lean staffing model — the AI Coach significantly reduces facilitator load</li>
+          <li>Students graduate with a live product, GitHub portfolio, and real internship on their CV</li>
+          <li>Industry mentors, Demo Day, and internship coordination included</li>
+          <li>Assessment framework with rubrics and walkthroughs built in</li>
+        </ul>
+      </div>
+      <div class="inst-contact">
+        <h3>Let's talk about a cohort.</h3>
+        <p>We're onboarding our first institutional partners for 2026 delivery. If you're interested in bringing this to your students, reach out — we'd love to understand your context.</p>
+        <a href="mailto:anikannal@aexons.com?subject=AI-First Engineering — Institutional Partnership" class="btn-inst">Get in touch →</a>
+        <div class="inst-detail">We respond to all institutional enquiries within 48 hours. Detailed program information, staffing model, and commercial terms available on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">AI-First Engineering</span>
+  <div class="footer-links">
+    <a href="course-sites/build/student/index.html">Student Guide</a>
+    <a href="course-sites/build/instructor/index.html">Facilitator Guide</a>
+    <a href="mailto:anikannal@aexons.com">Contact</a>
+  </div>
+  <span class="footer-note">© 2026 AI-First Engineering. All rights reserved.</span>
+</footer>
+
+<script>
+  /* ── Mentor Carousel ── */
+  let mPos = 0;
+  const mTotal = 6; // 8 cards, 3 visible → 6 scroll positions
+
+  function getCardStep() {
+    const track = document.getElementById('mentor-track');
+    if (!track || !track.children[0]) return 0;
+    return track.children[0].offsetWidth + 20;
+  }
+
+  function updateMentor() {
+    const track = document.getElementById('mentor-track');
+    if (!track) return;
+    track.style.transform = 'translateX(-' + (mPos * getCardStep()) + 'px)';
+    document.querySelectorAll('.c-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === mPos);
+    });
+  }
+
+  function shiftMentor(dir) {
+    const newPos = (mPos + dir + mTotal) % mTotal;
+    const isWrap = Math.abs(newPos - mPos) > 1;
+    if (isWrap) {
+      const track = document.getElementById('mentor-track');
+      track.style.transition = 'none';
+      mPos = newPos;
+      track.style.transform = 'translateX(-' + (mPos * getCardStep()) + 'px)';
+      document.querySelectorAll('.c-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === mPos);
+      });
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          track.style.transition = '';
+        });
+      });
+    } else {
+      mPos = newPos;
+      updateMentor();
+    }
+  }
+
+  function goMentor(i) {
+    mPos = i;
+    updateMentor();
+  }
+
+  /* Auto-advance every 6s */
+  setInterval(function() { shiftMentor(1); }, 6000);
+
+  function selectCohort(id) {
+    document.getElementById('card-dec').classList.remove('selected');
+    document.getElementById('card-jan').classList.remove('selected');
+    document.getElementById('card-' + id).classList.add('selected');
+  }
+
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDox4NX_lguCLGViJyitBVJpdMk5CBhYRJBXdXYqa2tV2_RYN_rWGb__kT01h0sdA/exec';
+
+  function submitForm(e) {
+    e.preventDefault();
+    var btn = document.querySelector('.form-submit');
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    var data = {
+      cohort:     document.querySelector('input[name="cohort"]:checked').value,
+      fname:      document.getElementById('fname').value,
+      lname:      document.getElementById('lname').value,
+      email:      document.getElementById('email').value,
+      university: document.getElementById('university').value,
+      year:       document.getElementById('year').value,
+      aiExp:      document.getElementById('ai-exp').value,
+      built:      document.getElementById('built').value,
+      why:        document.getElementById('why').value
+    };
+
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',          // Apps Script doesn't return CORS headers; we send and trust
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function() {
+      document.getElementById('form-inner').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }).catch(function() {
+      btn.textContent = 'Submit Application →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or email us at anikannal@aexons.com');
+    });
+  }
+</script>
+
+</body>
+</html>
